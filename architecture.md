@@ -19,4 +19,4 @@ Browser `GET <endpoint>?action=list` returns dishes (never tokens). Browser `POS
 - The sheet owner can edit or delete rows by hand (set `removed` to TRUE to hide a row).
 
 ## Deployment boundary
-Static hosting on GitHub Pages (page only). Backend on the host's Google account (Apps Script web app, "Execute as me", access "Anyone"). The endpoint URL is not secret but anyone holding it can add rows within the caps.
+Static hosting on GitHub Pages (page only). Backend on the host's Google account: sheet "Fransgivin dishes" (tab `Dishes`) bound to an Apps Script web app (execute as the host, access Anyone, version 2). The deployed endpoint URL is baked into `index.html` by `src/build.py --endpoint`; it is not secret, and anyone holding it can add rows within the caps. A code change in `apps-script/Code.gs` needs pasting into the Apps Script editor and a new deployment version (Deploy > Manage deployments > edit > New version) to keep the same URL.

@@ -39,6 +39,15 @@ function setup() {
   sheet_();
 }
 
+/** Sheets runs text starting with = + - @ as a formula. A leading zero-width space keeps it plain text; the page strips it. */
+function safeCell_(s) {
+  return /^[=+\-@]/.test(s) ? '​' + s : s;
+}
+
+function unsafeCell_(s) {
+  return String(s).replace(/^​/, '');
+}
+
 function json_(obj) {
   return ContentService.createTextOutput(JSON.stringify(obj)).setMimeType(ContentService.MimeType.JSON);
 }
@@ -69,10 +78,10 @@ function isRemoved_(r) {
 function publicDish_(r) {
   return {
     id: String(r.id),
-    name: String(r.name),
-    dish: String(r.dish),
+    name: unsafeCell_(r.name),
+    dish: unsafeCell_(r.dish),
     category: String(r.category),
-    note: String(r.note || ''),
+    note: unsafeCell_(r.note || ''),
     createdAt: String(r.createdAt)
   };
 }
@@ -130,7 +139,7 @@ function add_(b, lock) {
     // Set text format on the new row BEFORE writing so values like "=1+1" stay plain text.
     var target = sh.getRange(sh.getLastRow() + 1, 1, 1, HEADERS.length);
     target.setNumberFormat('@');
-    target.setValues([[id, name, dish, category, note, createdAt, token, 'FALSE']]);
+    target.setValues([[id, safeCell_(name), safeCell_(dish), category, safeCell_(note), createdAt, token, 'FALSE']]);
     return json_({ ok: true, dish: { id: id, name: name, dish: dish, category: category, note: note, createdAt: createdAt } });
   } finally {
     lock.releaseLock();

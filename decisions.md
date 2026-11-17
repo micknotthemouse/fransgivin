@@ -17,3 +17,9 @@ Browsers block autoplay, and a saved "on" state cannot play without a tap.
 
 ## D6. Success toast waits for server confirmation (2026-11-17)
 Found in testing: an optimistic "it's done" toast contradicted a failed send. Effects still play at once; the toast follows the confirmed save.
+
+## D7. WANTED board favors unique dishes (2026-11-17, host feedback)
+Host asked to drop mashed potatoes, stuffing, gravy, mac and cheese and green bean casserole, keep cranberries, add more apps and sides, and encourage family or culture dishes over Thanksgiving classics. Those five classics are still recognized for duplicate warnings but never fill an open "family secret" slot. Open-ended posters leave the dish field blank and show an example hint instead of prefilling a label.
+
+## D8. Backend permission scope (2026-11-17)
+The script declares `@OnlyCurrentDoc`, so Google's permission screen covers only the "Fransgivin dishes" sheet. Deployed as web app: execute as the host, access Anyone (required so friends need no Google login). Accepted risk: anyone holding the link can add rows, bounded by 12 rows per browser token, 150 rows total, a honeypot, and the host deleting rows by hand.
