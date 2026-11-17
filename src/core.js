@@ -41,7 +41,13 @@ const ENDPOINT = ""; /* @@ENDPOINT@@ */
     "You talkin' to me? Wrong movie. Bring rolls.",
     'Yippee-ki-yay, mother-gravy.',
     'I spent my whole life trying not to be stuffed. Now look at me.',
-    'Ham would be cool. — The Godfather, probably.'
+    'Ham would be cool. — The Godfather, probably.',
+    'The Don is bored of beige. Bring something with color.',
+    'Bring the dish your grandmother never wrote down.',
+    'Nothing says respect like dumplings at a turkey party.',
+    "Your culture's greatest hit belongs on this table.",
+    'Traditional Thanksgiving food is a hostage situation. Free the Family.',
+    "Don't bring the classics. The classics are fine. Bring the thing you'd actually fight for."
   ];
 
   const SUCCESS = [
@@ -120,7 +126,7 @@ const ENDPOINT = ""; /* @@ENDPOINT@@ */
     calmSubOff: 'fewer explosions',
     calmSubOn: 'more explosions',
     seeIt: 'SEE IT',
-    defaultPh: "e.g. Grandma's mac n cheese",
+    defaultPh: "e.g. your family's secret dumplings",
     wantedMore: '+{n} MORE WANTED',
     wantedLess: 'SHOW TOP 6 ONLY',
     coveredBy: ' COVERED by {names}',
@@ -319,9 +325,9 @@ const ENDPOINT = ""; /* @@ENDPOINT@@ */
   function demoSeed() {
     const t = Date.now();
     return [
-      { id: 'sample01', name: 'SAMPLE Sal', dish: 'Stuffing', category: 'Sides', note: '', createdAt: new Date(t - 3 * 36e5).toISOString(), token: '' },
+      { id: 'sample01', name: 'SAMPLE Sal', dish: 'Kimchi pancakes', category: 'Apps', note: '', createdAt: new Date(t - 3 * 36e5).toISOString(), token: '' },
       { id: 'sample02', name: 'SAMPLE Vito', dish: 'Red wine', category: 'Booze', note: '', createdAt: new Date(t - 2 * 36e5).toISOString(), token: '' },
-      { id: 'sample03', name: 'SAMPLE Connie', dish: 'Pecan pie', category: 'Desserts', note: '', createdAt: new Date(t - 1 * 36e5).toISOString(), token: '' }
+      { id: 'sample03', name: 'SAMPLE Connie', dish: 'Pierogi', category: 'Apps', note: '', createdAt: new Date(t - 1 * 36e5).toISOString(), token: '' }
     ];
   }
   function demoLoad() {
@@ -711,12 +717,13 @@ const ENDPOINT = ""; /* @@ENDPOINT@@ */
     return li;
   }
 
-  function moreSidesLi() {
+  function morePosterLi(kind) {
+    const apps = kind === 'apps';
     const li = h('li');
-    const b = btn('poster poster-more', null, { idx: 'more' });
+    const b = btn('poster poster-more', null, { idx: apps ? 'moreApps' : 'more' });
     b.appendChild(h('span', 'p-w', 'WANTED:'));
-    b.appendChild(h('span', 'p-name', 'MORE SIDES'));
-    b.appendChild(h('span', 'p-reward', 'Reward: eternal respect'));
+    b.appendChild(h('span', 'p-name', apps ? 'MORE APPS' : 'MORE SIDES'));
+    b.appendChild(h('span', 'p-reward', apps ? 'Reward: first dibs on leftovers' : 'Reward: eternal respect'));
     b.appendChild(h('span', 'p-claim', 'CLAIM ›'));
     li.appendChild(b);
     return li;
@@ -737,7 +744,8 @@ const ENDPOINT = ""; /* @@ENDPOINT@@ */
       const ul = $('posters');
       ul.textContent = '';
       show.forEach(function (it) { ul.appendChild(posterLi(it)); });
-      ul.appendChild(moreSidesLi());
+      ul.appendChild(morePosterLi('sides'));
+      ul.appendChild(morePosterLi('apps'));
     }
     const extra = unfilled.length - 6;
     const mw = $('moreWanted');
@@ -809,7 +817,7 @@ const ENDPOINT = ""; /* @@ENDPOINT@@ */
 
   function updatePlaceholder() {
     const top = S.cat ? D.topUnfilled(S.wanted, S.cat) : null;
-    $('dishIn').placeholder = top ? 'e.g. ' + top.label : T.defaultPh;
+    $('dishIn').placeholder = top ? 'e.g. ' + (top.hint || top.label) : T.defaultPh;
   }
 
   function showBanner(kind) {
@@ -1189,15 +1197,18 @@ const ENDPOINT = ""; /* @@ENDPOINT@@ */
 
   function onPoster(b) {
     const idx = b.dataset.idx;
-    const more = idx === 'more';
+    const more = idx === 'more' || idx === 'moreApps';
     const item = more ? null : S.wanted.items[+idx];
     if (!more && !item) return;
     FX.play('yoink', { el: b, item: item });
     const dishIn = $('dishIn');
     S.catAuto = false;
-    if (more || item.catLevel) {
+    // Open-ended posters (MORE SIDES/APPS, family and culture slots, "anything wrapped") leave the dish blank.
+    const open = more || item.catLevel || item.generic;
+    if (open) {
       dishIn.value = '';
-      selectCat(more ? 'Sides' : item.category);
+      selectCat(more ? (idx === 'moreApps' ? 'Apps' : 'Sides') : item.category);
+      if (!more && item.hint) dishIn.placeholder = 'e.g. ' + item.hint;
     } else {
       dishIn.value = item.label;
       selectCat(item.category);
@@ -1206,7 +1217,7 @@ const ENDPOINT = ""; /* @@ENDPOINT@@ */
     if (!nameKnown) {
       focusNoScroll($('nameIn'));
       scrollToEl($('ritual'), 'start');
-    } else if (more || item.catLevel) {
+    } else if (open) {
       focusNoScroll(dishIn);
       scrollToEl(dishIn, 'center');
     } else {

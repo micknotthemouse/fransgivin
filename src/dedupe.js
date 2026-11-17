@@ -58,7 +58,7 @@ var DEDUPE = (function () {
     greenbean: ['green bean casserole', 'green bean', 'string bean'],
     stuffing: ['stuffing', 'dressing'],
     sweetpotato: ['sweet potato casserole', 'candied yam', 'sweet potato', 'yam'],
-    bread: ['dinner roll', 'cornbread', 'biscuit', 'bread', 'roll'],
+    bread: ['dinner roll', 'cornbread', 'biscuit', 'bread', 'roll', 'naan', 'pita', 'focaccia', 'baguette', 'flatbread', 'challah'],
     cranberry: ['cranberry sauce', 'cranberry'],
     gravy: ['gravy'],
     salad: ['green salad', 'salad'],
@@ -72,6 +72,10 @@ var DEDUPE = (function () {
     na: ['non alcoholic', 'sparkling water', 'mocktail', 'seltzer', 'soda', 'juice'],
     ice: ['ice'],
     togo: ['to go container', 'tupperware', 'container', 'foil'],
+    wrapped: ['dumpling', 'empanada', 'spring roll', 'lumpia', 'samosa', 'pierogi', 'pierogy', 'potsticker', 'gyoza', 'wonton', 'tamale', 'bao', 'dim sum'],
+    dip: ['spinach artichoke dip', 'spinach dip', 'artichoke dip', 'chips and dip', 'dip', 'hummus', 'guacamole', 'guac', 'salsa', 'queso', 'baba ganoush', 'tzatziki', 'pimento cheese', 'spread'],
+    starch: ['fried rice', 'jollof rice', 'jollof', 'rice and beans', 'rice pilaf', 'pilaf', 'risotto', 'lo mein', 'noodle', 'couscous', 'orzo', 'quinoa', 'rice'],
+    tangy: ['kimchi', 'coleslaw', 'slaw', 'pickle', 'pickled', 'giardiniera', 'chutney', 'sauerkraut'],
     ham: ['ham'],
     turkey: ['turkey']
   };
@@ -79,7 +83,7 @@ var DEDUPE = (function () {
   // Checked FIRST. An empty key blanks the phrase so it can never trigger a key; a real key wins at once.
   var EXCEPT = {
     'ice cream': '', 'carrot cake': '', 'egg roll': '', 'cinnamon roll': '', 'pot pie': '',
-    'sweet potato pie': 'pie', 'apple cider': 'na', 'cranberry juice': 'na'
+    'sweet potato pie': 'pie', 'apple cider': 'na', 'cranberry juice': 'na', 'rice pudding': '', 'rice krispie': ''
   };
 
   var KEY_CAT = {
@@ -88,6 +92,7 @@ var DEDUPE = (function () {
     pumpkinpie: 'Desserts', applepie: 'Desserts', pecanpie: 'Desserts', pie: 'Desserts',
     wine: 'Booze', beer: 'Booze',
     na: 'Other', ice: 'Other', togo: 'Other',
+    wrapped: 'Apps', dip: 'Apps', starch: 'Sides', tangy: 'Sides',
     ham: 'Main/Ham', turkey: 'Main/Ham'
   };
 
@@ -207,20 +212,21 @@ var DEDUPE = (function () {
     return res;
   }
 
+  // [label, category, key ('' = any row in the category), target, hint (set = generic poster: no prefilled dish)]
   var WANTED = [
-    ['Mashed Potatoes', 'Sides', 'mash', 1],
-    ['Stuffing', 'Sides', 'stuffing', 1],
-    ['Gravy', 'Sides', 'gravy', 1],
-    ['Mac & Cheese', 'Sides', 'mac', 1],
-    ['Green Bean Casserole', 'Sides', 'greenbean', 1],
+    ['Cranberries', 'Sides', 'cranberry', 1],
+    ["Your Family's Secret Side", 'Sides', '', 4, 'a family recipe nobody ever wrote down'],
+    ['Finger Food From Your Culture', 'Apps', '', 4, 'something you grew up eating'],
+    ['Dumplings, Empanadas, Anything Wrapped', 'Apps', 'wrapped', 1, 'pierogi, lumpia, samosas, gyoza'],
+    ['A Dip or Spread', 'Apps', 'dip', 1, 'hummus, guac, queso, whipped feta'],
+    ['Rice or Noodles', 'Sides', 'starch', 1, 'jollof, fried rice, lo mein, anything'],
+    ['Tangy: Slaw, Pickles, Kimchi', 'Sides', 'tangy', 1, 'kimchi, slaw, pickled anything'],
     ['Sweet Potatoes', 'Sides', 'sweetpotato', 1],
-    ['Cranberry Sauce', 'Sides', 'cranberry', 1],
-    ['Rolls', 'Sides', 'bread', 1],
+    ['Bread From Anywhere', 'Sides', 'bread', 1, 'naan, challah, cornbread, focaccia'],
     ['Salad', 'Sides', 'salad', 1],
     ['Roasted Veggies', 'Sides', 'veg', 1],
-    ['Apps / Cheese Board', 'Apps', '', 2],
     ['Pumpkin Pie', 'Desserts', 'pumpkinpie', 1],
-    ['Another Dessert', 'Desserts', '', 2],
+    ['A Dessert From Your Culture', 'Desserts', '', 4, 'baklava, flan, mochi, grandma\'s cake'],
     ['Wine', 'Booze', 'wine', 2],
     ['Beer / Cider', 'Booze', 'beer', 1],
     ['Non-Alcoholic Drinks', 'Other', 'na', 1],
@@ -228,10 +234,13 @@ var DEDUPE = (function () {
     ['To-Go Containers', 'Other', 'togo', 1]
   ];
 
+  // The classics the host does not need more of: they never fill a "your family's secret" slot.
+  var TRADITIONAL = { mash: 1, mac: 1, greenbean: 1, stuffing: 1, gravy: 1 };
+
   /** WANTED fill state for a list of rows ({name, dish, category}). */
   function computeWanted(rows) {
     var items = WANTED.map(function (w, i) {
-      return { idx: i, label: w[0], category: w[1], key: w[2], target: w[3], count: 0, names: [], filled: false, catLevel: !w[2] };
+      return { idx: i, label: w[0], category: w[1], key: w[2], target: w[3], count: 0, names: [], filled: false, catLevel: !w[2], generic: !!w[4], hint: w[4] || '' };
     });
     rows.forEach(function (r) {
       if (!r || r.virtual) return;
@@ -242,7 +251,7 @@ var DEDUPE = (function () {
           if (items[i].key === k && items[i].category === r.category) { hit = items[i]; break; }
         }
       }
-      if (!hit) {
+      if (!hit && !(k && TRADITIONAL[k])) {
         for (i = 0; i < items.length; i++) {
           if (items[i].catLevel && items[i].category === r.category) { hit = items[i]; break; }
         }
@@ -273,7 +282,7 @@ var DEDUPE = (function () {
   /** Up to n unfilled keyed items: same category first, then Sides, excluding a key. */
   function stillNeeded(wanted, category, excludeKey, n) {
     n = n || 3;
-    var pool = wanted.unfilled.filter(function (it) { return it.key && it.key !== excludeKey; });
+    var pool = wanted.unfilled.filter(function (it) { return it.key && !it.generic && it.key !== excludeKey; });
     var out = [];
     function take(pred) {
       pool.forEach(function (it) { if (out.length < n && pred(it) && out.indexOf(it) < 0) out.push(it); });
@@ -291,6 +300,10 @@ var DEDUPE = (function () {
     return null;
   }
 
+  function DEDUPE_stillNeededHasGeneric(w) {
+    return stillNeeded(w, 'Sides', '', 20).some(function (it) { return it.generic; });
+  }
+
   function selfTest() {
     var results = [];
     function check(name, got, want) {
@@ -304,7 +317,10 @@ var DEDUPE = (function () {
       ['Sweet potato pie', 'pie'], ['Sweet potato casserole', 'sweetpotato'], ['Apple cider', 'na'],
       ['Cranberry juice', 'na'], ['Cranberry sauce', 'cranberry'], ['Hard seltzer', 'beer'],
       ['To-go containers', 'togo'], ['Homemade Stuffing', 'stuffing'], ['Crème brûlée', ''],
-      ['Green bean casserole', 'greenbean'], ['Rosé', 'wine'], ['Pumpkin pie with ice cream', 'pumpkinpie']
+      ['Green bean casserole', 'greenbean'], ['Rosé', 'wine'], ['Pumpkin pie with ice cream', 'pumpkinpie'],
+      ['Cranberries', 'cranberry'], ['Pork dumplings', 'wrapped'], ['Lumpia', 'wrapped'], ['Pierogies', 'wrapped'],
+      ['Spinach artichoke dip', 'dip'], ['Hummus', 'dip'], ['Jollof rice', 'starch'], ['Rice pudding', ''],
+      ['Rice Krispie treats', ''], ['Kimchi', 'tangy'], ['Pickled onions', 'tangy'], ['Naan', 'bread'], ['Plantains', '']
     ];
     keyVectors.forEach(function (v) { check('key:' + v[0], keyOf(normalize(v[0])), v[1]); });
     check('norm:pies', normalize('Pies'), 'pie');
@@ -325,13 +341,22 @@ var DEDUPE = (function () {
     check('score:filler only', s('The best', 'Sides', 'The best'), '');
     check('score:host ham', score('Ham', 'Main/Ham', buildIndex([HOST_HAM])).level, 'strong');
 
+    function item(w, label) { return w.items.filter(function (it) { return it.label === label; })[0]; }
     var w1 = computeWanted([{ name: 'a', dish: 'Ice cream', category: 'Desserts' }]);
-    check('wanted:ice cream not ice', w1.items[16].count, 0);
+    check('wanted:ice cream not ice', item(w1, 'Ice').count, 0);
     var w2 = computeWanted([{ name: 'a', dish: 'Bag of ice', category: 'Other' }]);
-    check('wanted:ice fills', w2.items[16].filled, true);
+    check('wanted:ice fills', item(w2, 'Ice').filled, true);
     var w3 = computeWanted([{ name: 'a', dish: 'Pumpkin pie', category: 'Sides' }]);
-    check('wanted:category must match', w3.items[11].filled, false);
-    check('wouldFill:stuffing', (wouldFill([], { name: 'a', dish: 'Stuffing', category: 'Sides' }) || {}).label, 'Stuffing');
+    check('wanted:category must match', item(w3, 'Pumpkin Pie').filled, false);
+    check('wouldFill:cranberries', (wouldFill([], { name: 'a', dish: 'Cranberry sauce', category: 'Sides' }) || {}).label, 'Cranberries');
+    var w4 = computeWanted([{ name: 'a', dish: 'Stuffing', category: 'Sides' }, { name: 'b', dish: 'Mashed potatoes', category: 'Sides' }]);
+    check('wanted:classics skip secret slot', item(w4, "Your Family's Secret Side").count, 0);
+    var w5 = computeWanted([{ name: 'a', dish: 'Fried plantains', category: 'Sides' }]);
+    check('wanted:unique side fills secret slot', item(w5, "Your Family's Secret Side").count, 1);
+    var w6 = computeWanted([{ name: 'a', dish: 'Pork dumplings', category: 'Apps' }]);
+    check('wanted:dumplings fill wrapped', item(w6, 'Dumplings, Empanadas, Anything Wrapped').filled, true);
+    check('wanted:no stuffing poster', w6.items.filter(function (it) { return /stuffing|gravy|mashed|mac|green bean/i.test(it.label); }).length, 0);
+    check('stillNeeded: no generic', DEDUPE_stillNeededHasGeneric(w6), false);
 
     var pass = results.filter(function (r) { return r.pass; }).length;
     return { pass: pass, fail: results.length - pass, total: results.length, results: results };

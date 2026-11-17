@@ -1,4 +1,7 @@
 /**
+ * @OnlyCurrentDoc
+ * (Limits the permission Google asks for to THIS spreadsheet only.)
+ *
  * Fransgivin backend: Google Sheet + Apps Script web app.
  * Deploy: Deploy > New deployment > Web app > Execute as: Me > Who has access: Anyone.
  * Protocol (see architecture.md):

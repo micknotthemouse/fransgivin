@@ -86,6 +86,7 @@ ul{margin:0;padding:0;list-style:none}
 .date{font-family:var(--f-comic);color:var(--yolk);font-size:27px;letter-spacing:.06em;text-align:center;margin-top:6px;line-height:1.05}
 .tagline{text-align:center;font-family:var(--f-serif);font-style:italic;font-weight:700;font-size:16px;margin-top:2px}
 .invite{text-align:center;font-weight:800;font-size:16px;margin-top:2px}
+.invite-2{font-weight:700;font-size:15px;color:var(--yolk);margin-top:6px;max-width:34ch;margin-inline:auto}
 .don-row{display:flex;align-items:flex-end;gap:8px;margin:10px 0 10px}
 .bubble-wrap{flex:1;min-width:0;display:flex;flex-direction:column;align-items:flex-start}
 .bubble{position:relative;background:var(--cream);color:var(--ink);border:3px solid var(--ink);border-radius:18px;padding:8px 12px;
@@ -404,6 +405,7 @@ html.reduced .skel{animation:none!important}
   <p class="date">SAT NOV 21 · 6:30PM</p>
   <p class="tagline">This November, the Family eats together.</p>
   <p class="invite">Bring foods and booze. Plz help us clean after.</p>
+  <p class="invite invite-2">Skip the boring classics. Bring a dish you actually love: a family recipe, your culture's greatest hit, anything.</p>
   <div class="don-row">
     <div class="bubble-wrap">
       <p id="donBubble" class="bubble" aria-live="polite">You come to my table… on the day of the Friendsgiving.</p>
@@ -454,17 +456,18 @@ html.reduced .skel{animation:none!important}
   <h2 id="wantedTitle" class="sec-title">WANTED BOARD</h2>
   <div class="hamgen-row">
     <span id="hamgenArt" class="hamgen-art" aria-hidden="true"></span>
-    <p class="blurb"><span class="blurb-who">Tom Hamgen's List</span> The Family requires the following. Tap one and it's yours. Friendsgiving runs on sides. Many, many sides.</p>
+    <p class="blurb"><span class="blurb-who">Tom Hamgen's List</span> The Family requires the following. Tap one and it's yours. Skip the boring Thanksgiving classics: bring a dish you love, from your family or your culture. It does not have to be Thanksgiving. Many, many sides and apps.</p>
   </div>
   <p id="allFilled" class="all-filled" hidden>All filled. More sides anyway. Sides are love.</p>
   <ul id="posters" class="posters">
-    <li><button type="button" class="poster" data-idx="0"><span class="p-w">WANTED</span><span class="p-name">Mashed Potatoes</span><span class="p-claim">CLAIM ›</span></button></li>
-    <li><button type="button" class="poster" data-idx="1"><span class="p-w">WANTED</span><span class="p-name">Stuffing</span><span class="p-claim">CLAIM ›</span></button></li>
-    <li><button type="button" class="poster" data-idx="2"><span class="p-w">WANTED</span><span class="p-name">Gravy</span><span class="p-claim">CLAIM ›</span></button></li>
-    <li><button type="button" class="poster" data-idx="3"><span class="p-w">WANTED</span><span class="p-name">Mac &amp; Cheese</span><span class="p-claim">CLAIM ›</span></button></li>
-    <li><button type="button" class="poster" data-idx="4"><span class="p-w">WANTED</span><span class="p-name">Green Bean Casserole</span><span class="p-claim">CLAIM ›</span></button></li>
-    <li><button type="button" class="poster" data-idx="5"><span class="p-w">WANTED</span><span class="p-name">Sweet Potatoes</span><span class="p-claim">CLAIM ›</span></button></li>
+    <li><button type="button" class="poster" data-idx="0"><span class="p-w">WANTED</span><span class="p-name">Cranberries</span><span class="p-claim">CLAIM ›</span></button></li>
+    <li><button type="button" class="poster" data-idx="1"><span class="p-w">WANTED</span><span class="p-name">Your Family's Secret Side</span><span class="p-claim">CLAIM ›</span></button></li>
+    <li><button type="button" class="poster" data-idx="2"><span class="p-w">WANTED</span><span class="p-name">Finger Food From Your Culture</span><span class="p-claim">CLAIM ›</span></button></li>
+    <li><button type="button" class="poster" data-idx="3"><span class="p-w">WANTED</span><span class="p-name">Dumplings, Empanadas, Anything Wrapped</span><span class="p-claim">CLAIM ›</span></button></li>
+    <li><button type="button" class="poster" data-idx="4"><span class="p-w">WANTED</span><span class="p-name">A Dip or Spread</span><span class="p-claim">CLAIM ›</span></button></li>
+    <li><button type="button" class="poster" data-idx="5"><span class="p-w">WANTED</span><span class="p-name">Rice or Noodles</span><span class="p-claim">CLAIM ›</span></button></li>
     <li><button type="button" class="poster poster-more" data-idx="more"><span class="p-w">WANTED:</span><span class="p-name">MORE SIDES</span><span class="p-reward">Reward: eternal respect</span><span class="p-claim">CLAIM ›</span></button></li>
+    <li><button type="button" class="poster poster-more" data-idx="moreApps"><span class="p-w">WANTED:</span><span class="p-name">MORE APPS</span><span class="p-reward">Reward: first dibs on leftovers</span><span class="p-claim">CLAIM ›</span></button></li>
   </ul>
   <button type="button" id="moreWanted" class="btn-link more-wanted" aria-expanded="false" aria-controls="posters" hidden>+12 MORE WANTED</button>
   <div class="covered">
@@ -615,7 +618,7 @@ var DEDUPE = (function () {
     greenbean: ['green bean casserole', 'green bean', 'string bean'],
     stuffing: ['stuffing', 'dressing'],
     sweetpotato: ['sweet potato casserole', 'candied yam', 'sweet potato', 'yam'],
-    bread: ['dinner roll', 'cornbread', 'biscuit', 'bread', 'roll'],
+    bread: ['dinner roll', 'cornbread', 'biscuit', 'bread', 'roll', 'naan', 'pita', 'focaccia', 'baguette', 'flatbread', 'challah'],
     cranberry: ['cranberry sauce', 'cranberry'],
     gravy: ['gravy'],
     salad: ['green salad', 'salad'],
@@ -629,6 +632,10 @@ var DEDUPE = (function () {
     na: ['non alcoholic', 'sparkling water', 'mocktail', 'seltzer', 'soda', 'juice'],
     ice: ['ice'],
     togo: ['to go container', 'tupperware', 'container', 'foil'],
+    wrapped: ['dumpling', 'empanada', 'spring roll', 'lumpia', 'samosa', 'pierogi', 'pierogy', 'potsticker', 'gyoza', 'wonton', 'tamale', 'bao', 'dim sum'],
+    dip: ['spinach artichoke dip', 'spinach dip', 'artichoke dip', 'chips and dip', 'dip', 'hummus', 'guacamole', 'guac', 'salsa', 'queso', 'baba ganoush', 'tzatziki', 'pimento cheese', 'spread'],
+    starch: ['fried rice', 'jollof rice', 'jollof', 'rice and beans', 'rice pilaf', 'pilaf', 'risotto', 'lo mein', 'noodle', 'couscous', 'orzo', 'quinoa', 'rice'],
+    tangy: ['kimchi', 'coleslaw', 'slaw', 'pickle', 'pickled', 'giardiniera', 'chutney', 'sauerkraut'],
     ham: ['ham'],
     turkey: ['turkey']
   };
@@ -636,7 +643,7 @@ var DEDUPE = (function () {
   // Checked FIRST. An empty key blanks the phrase so it can never trigger a key; a real key wins at once.
   var EXCEPT = {
     'ice cream': '', 'carrot cake': '', 'egg roll': '', 'cinnamon roll': '', 'pot pie': '',
-    'sweet potato pie': 'pie', 'apple cider': 'na', 'cranberry juice': 'na'
+    'sweet potato pie': 'pie', 'apple cider': 'na', 'cranberry juice': 'na', 'rice pudding': '', 'rice krispie': ''
   };
 
   var KEY_CAT = {
@@ -645,6 +652,7 @@ var DEDUPE = (function () {
     pumpkinpie: 'Desserts', applepie: 'Desserts', pecanpie: 'Desserts', pie: 'Desserts',
     wine: 'Booze', beer: 'Booze',
     na: 'Other', ice: 'Other', togo: 'Other',
+    wrapped: 'Apps', dip: 'Apps', starch: 'Sides', tangy: 'Sides',
     ham: 'Main/Ham', turkey: 'Main/Ham'
   };
 
@@ -764,20 +772,21 @@ var DEDUPE = (function () {
     return res;
   }
 
+  // [label, category, key ('' = any row in the category), target, hint (set = generic poster: no prefilled dish)]
   var WANTED = [
-    ['Mashed Potatoes', 'Sides', 'mash', 1],
-    ['Stuffing', 'Sides', 'stuffing', 1],
-    ['Gravy', 'Sides', 'gravy', 1],
-    ['Mac & Cheese', 'Sides', 'mac', 1],
-    ['Green Bean Casserole', 'Sides', 'greenbean', 1],
+    ['Cranberries', 'Sides', 'cranberry', 1],
+    ["Your Family's Secret Side", 'Sides', '', 4, 'a family recipe nobody ever wrote down'],
+    ['Finger Food From Your Culture', 'Apps', '', 4, 'something you grew up eating'],
+    ['Dumplings, Empanadas, Anything Wrapped', 'Apps', 'wrapped', 1, 'pierogi, lumpia, samosas, gyoza'],
+    ['A Dip or Spread', 'Apps', 'dip', 1, 'hummus, guac, queso, whipped feta'],
+    ['Rice or Noodles', 'Sides', 'starch', 1, 'jollof, fried rice, lo mein, anything'],
+    ['Tangy: Slaw, Pickles, Kimchi', 'Sides', 'tangy', 1, 'kimchi, slaw, pickled anything'],
     ['Sweet Potatoes', 'Sides', 'sweetpotato', 1],
-    ['Cranberry Sauce', 'Sides', 'cranberry', 1],
-    ['Rolls', 'Sides', 'bread', 1],
+    ['Bread From Anywhere', 'Sides', 'bread', 1, 'naan, challah, cornbread, focaccia'],
     ['Salad', 'Sides', 'salad', 1],
     ['Roasted Veggies', 'Sides', 'veg', 1],
-    ['Apps / Cheese Board', 'Apps', '', 2],
     ['Pumpkin Pie', 'Desserts', 'pumpkinpie', 1],
-    ['Another Dessert', 'Desserts', '', 2],
+    ['A Dessert From Your Culture', 'Desserts', '', 4, 'baklava, flan, mochi, grandma\'s cake'],
     ['Wine', 'Booze', 'wine', 2],
     ['Beer / Cider', 'Booze', 'beer', 1],
     ['Non-Alcoholic Drinks', 'Other', 'na', 1],
@@ -785,10 +794,13 @@ var DEDUPE = (function () {
     ['To-Go Containers', 'Other', 'togo', 1]
   ];
 
+  // The classics the host does not need more of: they never fill a "your family's secret" slot.
+  var TRADITIONAL = { mash: 1, mac: 1, greenbean: 1, stuffing: 1, gravy: 1 };
+
   /** WANTED fill state for a list of rows ({name, dish, category}). */
   function computeWanted(rows) {
     var items = WANTED.map(function (w, i) {
-      return { idx: i, label: w[0], category: w[1], key: w[2], target: w[3], count: 0, names: [], filled: false, catLevel: !w[2] };
+      return { idx: i, label: w[0], category: w[1], key: w[2], target: w[3], count: 0, names: [], filled: false, catLevel: !w[2], generic: !!w[4], hint: w[4] || '' };
     });
     rows.forEach(function (r) {
       if (!r || r.virtual) return;
@@ -799,7 +811,7 @@ var DEDUPE = (function () {
           if (items[i].key === k && items[i].category === r.category) { hit = items[i]; break; }
         }
       }
-      if (!hit) {
+      if (!hit && !(k && TRADITIONAL[k])) {
         for (i = 0; i < items.length; i++) {
           if (items[i].catLevel && items[i].category === r.category) { hit = items[i]; break; }
         }
@@ -830,7 +842,7 @@ var DEDUPE = (function () {
   /** Up to n unfilled keyed items: same category first, then Sides, excluding a key. */
   function stillNeeded(wanted, category, excludeKey, n) {
     n = n || 3;
-    var pool = wanted.unfilled.filter(function (it) { return it.key && it.key !== excludeKey; });
+    var pool = wanted.unfilled.filter(function (it) { return it.key && !it.generic && it.key !== excludeKey; });
     var out = [];
     function take(pred) {
       pool.forEach(function (it) { if (out.length < n && pred(it) && out.indexOf(it) < 0) out.push(it); });
@@ -848,6 +860,10 @@ var DEDUPE = (function () {
     return null;
   }
 
+  function DEDUPE_stillNeededHasGeneric(w) {
+    return stillNeeded(w, 'Sides', '', 20).some(function (it) { return it.generic; });
+  }
+
   function selfTest() {
     var results = [];
     function check(name, got, want) {
@@ -861,7 +877,10 @@ var DEDUPE = (function () {
       ['Sweet potato pie', 'pie'], ['Sweet potato casserole', 'sweetpotato'], ['Apple cider', 'na'],
       ['Cranberry juice', 'na'], ['Cranberry sauce', 'cranberry'], ['Hard seltzer', 'beer'],
       ['To-go containers', 'togo'], ['Homemade Stuffing', 'stuffing'], ['Crème brûlée', ''],
-      ['Green bean casserole', 'greenbean'], ['Rosé', 'wine'], ['Pumpkin pie with ice cream', 'pumpkinpie']
+      ['Green bean casserole', 'greenbean'], ['Rosé', 'wine'], ['Pumpkin pie with ice cream', 'pumpkinpie'],
+      ['Cranberries', 'cranberry'], ['Pork dumplings', 'wrapped'], ['Lumpia', 'wrapped'], ['Pierogies', 'wrapped'],
+      ['Spinach artichoke dip', 'dip'], ['Hummus', 'dip'], ['Jollof rice', 'starch'], ['Rice pudding', ''],
+      ['Rice Krispie treats', ''], ['Kimchi', 'tangy'], ['Pickled onions', 'tangy'], ['Naan', 'bread'], ['Plantains', '']
     ];
     keyVectors.forEach(function (v) { check('key:' + v[0], keyOf(normalize(v[0])), v[1]); });
     check('norm:pies', normalize('Pies'), 'pie');
@@ -882,13 +901,22 @@ var DEDUPE = (function () {
     check('score:filler only', s('The best', 'Sides', 'The best'), '');
     check('score:host ham', score('Ham', 'Main/Ham', buildIndex([HOST_HAM])).level, 'strong');
 
+    function item(w, label) { return w.items.filter(function (it) { return it.label === label; })[0]; }
     var w1 = computeWanted([{ name: 'a', dish: 'Ice cream', category: 'Desserts' }]);
-    check('wanted:ice cream not ice', w1.items[16].count, 0);
+    check('wanted:ice cream not ice', item(w1, 'Ice').count, 0);
     var w2 = computeWanted([{ name: 'a', dish: 'Bag of ice', category: 'Other' }]);
-    check('wanted:ice fills', w2.items[16].filled, true);
+    check('wanted:ice fills', item(w2, 'Ice').filled, true);
     var w3 = computeWanted([{ name: 'a', dish: 'Pumpkin pie', category: 'Sides' }]);
-    check('wanted:category must match', w3.items[11].filled, false);
-    check('wouldFill:stuffing', (wouldFill([], { name: 'a', dish: 'Stuffing', category: 'Sides' }) || {}).label, 'Stuffing');
+    check('wanted:category must match', item(w3, 'Pumpkin Pie').filled, false);
+    check('wouldFill:cranberries', (wouldFill([], { name: 'a', dish: 'Cranberry sauce', category: 'Sides' }) || {}).label, 'Cranberries');
+    var w4 = computeWanted([{ name: 'a', dish: 'Stuffing', category: 'Sides' }, { name: 'b', dish: 'Mashed potatoes', category: 'Sides' }]);
+    check('wanted:classics skip secret slot', item(w4, "Your Family's Secret Side").count, 0);
+    var w5 = computeWanted([{ name: 'a', dish: 'Fried plantains', category: 'Sides' }]);
+    check('wanted:unique side fills secret slot', item(w5, "Your Family's Secret Side").count, 1);
+    var w6 = computeWanted([{ name: 'a', dish: 'Pork dumplings', category: 'Apps' }]);
+    check('wanted:dumplings fill wrapped', item(w6, 'Dumplings, Empanadas, Anything Wrapped').filled, true);
+    check('wanted:no stuffing poster', w6.items.filter(function (it) { return /stuffing|gravy|mashed|mac|green bean/i.test(it.label); }).length, 0);
+    check('stillNeeded: no generic', DEDUPE_stillNeededHasGeneric(w6), false);
 
     var pass = results.filter(function (r) { return r.pass; }).length;
     return { pass: pass, fail: results.length - pass, total: results.length, results: results };
@@ -2410,7 +2438,13 @@ var FX = (function () {
     "You talkin' to me? Wrong movie. Bring rolls.",
     'Yippee-ki-yay, mother-gravy.',
     'I spent my whole life trying not to be stuffed. Now look at me.',
-    'Ham would be cool. — The Godfather, probably.'
+    'Ham would be cool. — The Godfather, probably.',
+    'The Don is bored of beige. Bring something with color.',
+    'Bring the dish your grandmother never wrote down.',
+    'Nothing says respect like dumplings at a turkey party.',
+    "Your culture's greatest hit belongs on this table.",
+    'Traditional Thanksgiving food is a hostage situation. Free the Family.',
+    "Don't bring the classics. The classics are fine. Bring the thing you'd actually fight for."
   ];
 
   const SUCCESS = [
@@ -2489,7 +2523,7 @@ var FX = (function () {
     calmSubOff: 'fewer explosions',
     calmSubOn: 'more explosions',
     seeIt: 'SEE IT',
-    defaultPh: "e.g. Grandma's mac n cheese",
+    defaultPh: "e.g. your family's secret dumplings",
     wantedMore: '+{n} MORE WANTED',
     wantedLess: 'SHOW TOP 6 ONLY',
     coveredBy: ' COVERED by {names}',
@@ -2688,9 +2722,9 @@ var FX = (function () {
   function demoSeed() {
     const t = Date.now();
     return [
-      { id: 'sample01', name: 'SAMPLE Sal', dish: 'Stuffing', category: 'Sides', note: '', createdAt: new Date(t - 3 * 36e5).toISOString(), token: '' },
+      { id: 'sample01', name: 'SAMPLE Sal', dish: 'Kimchi pancakes', category: 'Apps', note: '', createdAt: new Date(t - 3 * 36e5).toISOString(), token: '' },
       { id: 'sample02', name: 'SAMPLE Vito', dish: 'Red wine', category: 'Booze', note: '', createdAt: new Date(t - 2 * 36e5).toISOString(), token: '' },
-      { id: 'sample03', name: 'SAMPLE Connie', dish: 'Pecan pie', category: 'Desserts', note: '', createdAt: new Date(t - 1 * 36e5).toISOString(), token: '' }
+      { id: 'sample03', name: 'SAMPLE Connie', dish: 'Pierogi', category: 'Apps', note: '', createdAt: new Date(t - 1 * 36e5).toISOString(), token: '' }
     ];
   }
   function demoLoad() {
@@ -3080,12 +3114,13 @@ var FX = (function () {
     return li;
   }
 
-  function moreSidesLi() {
+  function morePosterLi(kind) {
+    const apps = kind === 'apps';
     const li = h('li');
-    const b = btn('poster poster-more', null, { idx: 'more' });
+    const b = btn('poster poster-more', null, { idx: apps ? 'moreApps' : 'more' });
     b.appendChild(h('span', 'p-w', 'WANTED:'));
-    b.appendChild(h('span', 'p-name', 'MORE SIDES'));
-    b.appendChild(h('span', 'p-reward', 'Reward: eternal respect'));
+    b.appendChild(h('span', 'p-name', apps ? 'MORE APPS' : 'MORE SIDES'));
+    b.appendChild(h('span', 'p-reward', apps ? 'Reward: first dibs on leftovers' : 'Reward: eternal respect'));
     b.appendChild(h('span', 'p-claim', 'CLAIM ›'));
     li.appendChild(b);
     return li;
@@ -3106,7 +3141,8 @@ var FX = (function () {
       const ul = $('posters');
       ul.textContent = '';
       show.forEach(function (it) { ul.appendChild(posterLi(it)); });
-      ul.appendChild(moreSidesLi());
+      ul.appendChild(morePosterLi('sides'));
+      ul.appendChild(morePosterLi('apps'));
     }
     const extra = unfilled.length - 6;
     const mw = $('moreWanted');
@@ -3178,7 +3214,7 @@ var FX = (function () {
 
   function updatePlaceholder() {
     const top = S.cat ? D.topUnfilled(S.wanted, S.cat) : null;
-    $('dishIn').placeholder = top ? 'e.g. ' + top.label : T.defaultPh;
+    $('dishIn').placeholder = top ? 'e.g. ' + (top.hint || top.label) : T.defaultPh;
   }
 
   function showBanner(kind) {
@@ -3558,15 +3594,18 @@ var FX = (function () {
 
   function onPoster(b) {
     const idx = b.dataset.idx;
-    const more = idx === 'more';
+    const more = idx === 'more' || idx === 'moreApps';
     const item = more ? null : S.wanted.items[+idx];
     if (!more && !item) return;
     FX.play('yoink', { el: b, item: item });
     const dishIn = $('dishIn');
     S.catAuto = false;
-    if (more || item.catLevel) {
+    // Open-ended posters (MORE SIDES/APPS, family and culture slots, "anything wrapped") leave the dish blank.
+    const open = more || item.catLevel || item.generic;
+    if (open) {
       dishIn.value = '';
-      selectCat(more ? 'Sides' : item.category);
+      selectCat(more ? (idx === 'moreApps' ? 'Apps' : 'Sides') : item.category);
+      if (!more && item.hint) dishIn.placeholder = 'e.g. ' + item.hint;
     } else {
       dishIn.value = item.label;
       selectCat(item.category);
@@ -3575,7 +3614,7 @@ var FX = (function () {
     if (!nameKnown) {
       focusNoScroll($('nameIn'));
       scrollToEl($('ritual'), 'start');
-    } else if (more || item.catLevel) {
+    } else if (open) {
       focusNoScroll(dishIn);
       scrollToEl(dishIn, 'center');
     } else {
