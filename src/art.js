@@ -185,21 +185,21 @@ var ART = (function () {
   }
 
   /**
-   * Comic burst with a centered Bangers word.
+   * Comic burst with a centered word.
    * opts: {size, outer, inner, core, rotate, fontSize}
    */
   function burst(word, opts) {
     opts = opts || {};
     var w = String(word == null ? '' : word);
     var len = Math.max(3, Array.from(w).length);
-    var fs = opts.fontSize || Math.min(60, Math.floor(210 / (len * 0.56)));
+    var fs = opts.fontSize || Math.min(46, Math.floor(200 / (len * 0.95)));
     var rot = opts.rotate == null ? -8 : opts.rotate;
     return svg('-125 -125 250 250',
       '<polygon points="' + burstPoints(14, 110, 66) + '" fill="' + (opts.outer || C.kapow) + '" stroke="' + C.ink + '" stroke-width="4" stroke-linejoin="round"/>' +
       '<polygon points="' + burstPoints(14, 100, 60) + '" fill="' + (opts.inner || C.yolk) + '" stroke="' + C.ink + '" stroke-width="4" stroke-linejoin="round"/>' +
       '<circle r="30" fill="' + (opts.core || C.white) + '"/>' +
       (w ? '<text x="0" y="0" transform="rotate(' + rot + ')" text-anchor="middle" dominant-baseline="central" ' +
-        'font-family="Bangers, Impact, \'Arial Black\', sans-serif" font-size="' + fs + '" letter-spacing="1" fill="' + C.ink +
+        'font-family="Cinzel, Georgia, serif" font-size="' + fs + '" letter-spacing="1" fill="' + C.ink +
         '" stroke="' + C.white + '" stroke-width="6" paint-order="stroke" stroke-linejoin="round">' + esc(w) + '</text>' : ''),
       { size: opts.size, cls: 'burst-svg' });
   }
@@ -307,9 +307,9 @@ var ART = (function () {
     booze: '<rect x="4" y="13" width="9" height="16" rx="2" fill="' + C.kapow + '" stroke="' + C.ink + '" stroke-width="2"/><rect x="6.5" y="5" width="4" height="9" fill="' + C.kapow + '" stroke="' + C.ink + '" stroke-width="2"/>' +
       '<path d="M18 6 H29 Q29 15 23.5 16 Q18 15 18 6Z" fill="' + C.kapow + '" stroke="' + C.ink + '" stroke-width="2"/><path d="M23.5 16 V26 M19 27 H28" stroke="' + C.ink + '" stroke-width="2" stroke-linecap="round"/>',
     other: '<rect x="4" y="7" width="24" height="20" rx="2" fill="' + C.cream + '" stroke="' + C.ink + '" stroke-width="2.2"/><path d="M4 12 H28" stroke="' + C.ink + '" stroke-width="2"/>' +
-      '<text x="16" y="22" text-anchor="middle" dominant-baseline="central" font-family="Bangers, Impact, sans-serif" font-size="13" fill="' + C.ink + '">?</text>',
+      '<text x="16" y="22" text-anchor="middle" dominant-baseline="central" font-family="Cinzel, Georgia, serif" font-size="13" fill="' + C.ink + '">?</text>',
     mystery: '<rect x="4" y="7" width="24" height="20" rx="2" fill="' + C.yolk + '" stroke="' + C.ink + '" stroke-width="2.2"/><path d="M4 12 H28" stroke="' + C.ink + '" stroke-width="2"/>' +
-      '<text x="16" y="22" text-anchor="middle" dominant-baseline="central" font-family="Bangers, Impact, sans-serif" font-size="13" fill="' + C.ink + '">?</text>',
+      '<text x="16" y="22" text-anchor="middle" dominant-baseline="central" font-family="Cinzel, Georgia, serif" font-size="13" fill="' + C.ink + '">?</text>',
     fedora: '<polygon points="9,17 23,17 21,7 11,7" fill="' + C.ink + '"/><rect x="9" y="14" width="14" height="3" fill="' + C.kapow + '"/><ellipse cx="16" cy="18" rx="14" ry="3.5" fill="' + C.ink + '"/>'
   };
 

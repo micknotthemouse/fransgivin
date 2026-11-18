@@ -3,7 +3,7 @@
 **What it is:** a single static page, `index.html` (about 180 KB, inline CSS and vanilla JS), for the Fransgivin potluck (Sat Nov 21, 6:30pm). Friends open a link, see what everyone is bringing, and pledge a dish.
 
 ## Components
-- `src/` holds the parts: `head.html`, `style.css`, `body.html`, `core.js` (state, data, rendering, form, polling), `dedupe.js` (pure matching code, no DOM), `art.js` (original SVG art as strings), `fx.js` (particle engine and 14 effects), `sound.js` (WebAudio, off by default). `src/build.py` concatenates them into the one deployable `index.html` and can inject the backend URL (`--endpoint URL`).
+- `src/` holds the parts (page order: splash, hero with steps, PLEDGE A DISH form, what people are bringing, still-needed cards, rules): `head.html`, `style.css`, `body.html`, `core.js` (state, data, rendering, form, polling), `dedupe.js` (pure matching code, no DOM), `art.js` (original SVG art as strings), `fx.js` (particle engine and 14 effects), `sound.js` (WebAudio, off by default). `src/build.py` concatenates them into the one deployable `index.html` and can inject the backend URL (`--endpoint URL`).
 - `apps-script/Code.gs`: the backend. A Google Apps Script web app bound to a Google Sheet (tab `Dishes`).
 - `dev/mock_server.py`: local static server plus a mock of the backend protocol, for testing.
 - `docs/design-spec.md`, `docs/skeptic-notes.md`: the merged design and the review that shaped it.

@@ -23,3 +23,6 @@ Host asked to drop mashed potatoes, stuffing, gravy, mac and cheese and green be
 
 ## D8. Backend permission scope (2026-11-17)
 The script declares `@OnlyCurrentDoc`, so Google's permission screen covers only the "Fransgivin dishes" sheet. Deployed as web app: execute as the host, access Anyone (required so friends need no Google login). Accepted risk: anyone holding the link can add rows, bounded by 12 rows per browser token, 150 rows total, a honeypot, and the host deleting rows by hand.
+
+## D9. Explicit-first page: splash, steps, form above the list (2026-11-18, host feedback)
+Friends could not tell where to submit a dish. Chosen: splash with one ENTER button, 3-step list plus one giant PLEDGE A DISH button in the hero, and the form directly below the hero ahead of the dish list. Runner-up: keep the old order and only enlarge the existing button; rejected because the form stayed several screens down. Partiful buttons removed (guests already have the invite). Display font changed to Cinzel (film-poster serif) because Bangers read as cartoon, not Godfather. Accepted tradeoffs: one extra tap or a 9 s wait on first visit, three web fonts to load, hero is taller. The splash script is self-contained so a failure in the main script cannot trap visitors behind it.

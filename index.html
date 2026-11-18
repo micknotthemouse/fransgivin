@@ -11,12 +11,14 @@
 <meta property="og:description" content="Sat Nov 21 · 6:30pm. Pledge a dish. Bring sides. The Family is watching.">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A6%83%3C/text%3E%3C/svg%3E">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;700;800&family=Playfair+Display:ital,wght@1,700;1,900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Cinzel+Decorative:wght@900&family=Nunito:wght@400;700;800&family=Playfair+Display:ital,wght@1,700;1,900&display=swap">
+<script>try{if(sessionStorage.getItem("frans_splash")==="1"&&!/[?&]splash=1/.test(location.search))document.documentElement.className+=" no-splash"}catch(e){}</script>
 <style>
 :root{
   --ink:#16110F;--cream:#FFF3D6;--kapow:#C8102E;--yolk:#FFD23F;--pumpkin:#FF7A1A;--gravy:#7A4520;--ham:#E89A8C;--white:#FFFFFF;
   --gold:#D4A24C;--covered:#5A504A;
-  --f-comic:Bangers,Impact,"Arial Black",sans-serif;
+  --f-comic:Cinzel,"Trajan Pro","Palatino Linotype",Georgia,serif;
+  --f-title:"Cinzel Decorative",Cinzel,"Palatino Linotype",Georgia,serif;
   --f-serif:"Playfair Display",Georgia,"Bodoni 72",Didot,"Times New Roman",serif;
   --f-body:Nunito,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --bar-h:64px;
@@ -41,7 +43,7 @@ ul{margin:0;padding:0;list-style:none}
 /* ---------- banner / test strip ---------- */
 .banner{position:relative;z-index:5;background:var(--kapow);color:var(--cream);font-weight:800;font-size:16px;text-align:center;
   padding:10px 12px;padding-top:calc(10px + var(--safe-t));border-bottom:3px solid var(--ink);display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center}
-.banner-btn{min-height:44px;min-width:88px;padding:0 16px;background:var(--cream);color:var(--ink);border:3px solid var(--ink);border-radius:8px;font-family:var(--f-comic);font-size:20px;letter-spacing:.04em}
+.banner-btn{min-height:44px;min-width:88px;padding:0 16px;background:var(--cream);color:var(--ink);border:3px solid var(--ink);border-radius:8px;font-family:var(--f-comic);font-weight:700;font-size:15px;letter-spacing:.04em}
 .test-strip{font:700 15px/1.3 ui-monospace,Menlo,monospace;padding:8px 12px;background:var(--ink);color:var(--yolk);white-space:pre-wrap}
 .test-strip.fail{background:var(--kapow);color:var(--cream)}
 .noscript{background:var(--yolk);padding:12px;text-align:center;font-weight:800;border-bottom:3px solid var(--ink)}
@@ -50,7 +52,7 @@ ul{margin:0;padding:0;list-style:none}
 #stage{display:block;will-change:auto}
 .wrap{max-width:1100px;margin:0 auto;padding:12px;display:grid;gap:22px;grid-template-columns:minmax(0,1fr)}
 .section{min-width:0}
-.sec-title{font-family:var(--f-comic);font-weight:400;font-size:34px;letter-spacing:.03em;line-height:1;margin:4px 0 10px;
+.sec-title{font-family:var(--f-comic);font-weight:700;font-size:26px;letter-spacing:.03em;line-height:1;margin:4px 0 10px;
   color:var(--ink);text-shadow:2px 2px 0 var(--yolk)}
 .panel{background:var(--cream);border:3px solid var(--ink);box-shadow:6px 6px 0 var(--ink);border-radius:4px;padding:14px}
 .tilt-l{transform:rotate(-.8deg)}
@@ -61,7 +63,7 @@ ul{margin:0;padding:0;list-style:none}
   border:3px solid var(--ink);border-radius:10px;box-shadow:4px 4px 0 var(--ink);text-decoration:none;text-align:center;
   transition:transform .08s,box-shadow .08s}
 .btn:active{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}
-.btn-main{font-family:var(--f-comic);font-size:25px;letter-spacing:.05em;line-height:1}
+.btn-main{font-family:var(--f-comic);font-weight:700;font-size:19px;letter-spacing:.05em;line-height:1}
 .btn-sub{font-family:var(--f-body);font-weight:700;font-size:15px;line-height:1.15}
 .btn-kapow{background:var(--kapow);color:var(--cream)}
 .btn-yolk{background:var(--yolk);color:var(--ink)}
@@ -73,7 +75,7 @@ ul{margin:0;padding:0;list-style:none}
   background:transparent;border:2px dashed var(--ink);border-radius:10px;color:var(--ink)}
 .btn-link .btn-main{font-size:21px}
 .btn-mini{min-height:44px;padding:0 14px;margin-top:8px;background:var(--yolk);color:var(--ink);border:3px solid var(--ink);border-radius:8px;
-  font-family:var(--f-comic);font-size:19px;letter-spacing:.04em;box-shadow:3px 3px 0 var(--cream)}
+  font-family:var(--f-comic);font-weight:700;font-size:14px;letter-spacing:.04em;box-shadow:3px 3px 0 var(--cream)}
 
 /* ---------- hero ---------- */
 .hero{position:relative;color:var(--cream);border:3px solid var(--ink);box-shadow:6px 6px 0 var(--ink);border-radius:4px;padding:14px 14px 12px;
@@ -81,9 +83,9 @@ ul{margin:0;padding:0;list-style:none}
 .hero-sound{display:none}
 .puppet{height:54px;margin:0 auto -4px;max-width:320px}
 .puppet svg{width:100%;height:100%}
-.logo{font-family:var(--f-serif);font-style:italic;font-weight:900;font-size:clamp(44px,13vw,96px);line-height:.95;letter-spacing:.01em;color:var(--cream);
-  text-align:center;text-shadow:3px 3px 0 var(--kapow)}
-.date{font-family:var(--f-comic);color:var(--yolk);font-size:27px;letter-spacing:.06em;text-align:center;margin-top:6px;line-height:1.05}
+.logo{font-family:var(--f-title);font-style:normal;font-weight:900;font-size:clamp(30px,9.4vw,80px);line-height:1;letter-spacing:.02em;color:var(--gold);
+  text-align:center;text-shadow:3px 3px 0 var(--kapow),0 0 22px #D4A24C55}
+.date{font-family:var(--f-comic);font-weight:700;color:var(--yolk);font-size:20px;letter-spacing:.06em;text-align:center;margin-top:6px;line-height:1.05}
 .tagline{text-align:center;font-family:var(--f-serif);font-style:italic;font-weight:700;font-size:16px;margin-top:2px}
 .invite{text-align:center;font-weight:800;font-size:16px;margin-top:2px}
 .invite-2{font-weight:700;font-size:15px;color:var(--yolk);margin-top:6px;max-width:34ch;margin-inline:auto}
@@ -106,7 +108,7 @@ ul{margin:0;padding:0;list-style:none}
 .ledger{margin-top:14px}
 .ledger-list{display:flex;flex-wrap:wrap;gap:8px}
 .ledger-btn{min-height:44px;padding:4px 10px;background:transparent;color:var(--cream);border:2px solid var(--cream);border-radius:8px;
-  font-family:var(--f-comic);font-size:19px;letter-spacing:.04em;display:inline-flex;align-items:center;gap:6px}
+  font-family:var(--f-comic);font-weight:700;font-size:14px;letter-spacing:.04em;display:inline-flex;align-items:center;gap:6px}
 .lg-n.need{background:var(--yolk);color:var(--ink);border-radius:999px;padding:1px 9px;font-size:17px}
 .ledger-sum{margin-top:8px;font-weight:700;font-size:15px;color:var(--cream)}
 
@@ -128,8 +130,8 @@ ul{margin:0;padding:0;list-style:none}
 .cat-panel:nth-child(odd){transform:rotate(-.4deg)}
 .cat-panel:nth-child(even){transform:rotate(.4deg)}
 .cat-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 10px;border-bottom:3px solid var(--ink);padding-bottom:4px;margin-bottom:2px}
-.cat-h{font-family:var(--f-comic);font-weight:400;font-size:24px;letter-spacing:.04em;line-height:1.1}
-.cat-status{font-family:var(--f-comic);font-size:16px;letter-spacing:.05em;color:var(--kapow)}
+.cat-h{font-family:var(--f-comic);font-weight:700;font-size:18px;letter-spacing:.04em;line-height:1.1}
+.cat-status{font-family:var(--f-comic);font-weight:700;font-size:13px;letter-spacing:.05em;color:var(--kapow)}
 .cat-status.ok{color:var(--ink)}
 .cards{display:block}
 .card{position:relative;padding:8px 4px 8px 4px;border-bottom:2px dashed #16110F40;overflow-wrap:anywhere;word-break:normal;scroll-margin:90px 0}
@@ -139,7 +141,7 @@ ul{margin:0;padding:0;list-style:none}
 .card .meta{font-size:15px}
 .card .mys-ic{display:inline-block;vertical-align:-5px;margin-right:4px;width:22px;height:22px}
 .card .mys-ic svg{width:100%;height:100%}
-.tag{display:inline-block;vertical-align:2px;margin-left:6px;padding:1px 7px;border-radius:5px;font-family:var(--f-comic);font-size:15px;letter-spacing:.05em;line-height:1.3;white-space:nowrap}
+.tag{display:inline-block;vertical-align:2px;margin-left:6px;padding:1px 7px;border-radius:5px;font-family:var(--f-comic);font-weight:700;font-size:13px;letter-spacing:.05em;line-height:1.3;white-space:nowrap}
 .tag-yours{background:var(--ink);color:var(--yolk)}
 .tag-yours svg{vertical-align:-3px;margin-right:3px}
 .tag-new{background:var(--kapow);color:var(--cream);transform:rotate(-4deg)}
@@ -155,7 +157,7 @@ ul{margin:0;padding:0;list-style:none}
 .card-err{font-size:15px;font-weight:700;color:var(--kapow);margin-top:4px}
 .card-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
 .act{min-height:44px;min-width:44px;padding:0 14px;border:2px solid var(--ink);border-radius:8px;background:var(--cream);color:var(--ink);
-  font-family:var(--f-comic);font-size:19px;letter-spacing:.04em}
+  font-family:var(--f-comic);font-weight:700;font-size:14px;letter-spacing:.04em}
 .act-yes,.act-retry{background:var(--kapow);color:var(--cream)}
 .card.fresh{animation:fresh 2.6s ease-out}
 @keyframes fresh{0%,40%{background-color:var(--yolk)}100%{background-color:transparent}}
@@ -179,7 +181,7 @@ ul{margin:0;padding:0;list-style:none}
 .hamgen-art{flex:none;width:56px;height:56px}
 .hamgen-art svg{width:100%;height:100%}
 .blurb{font-size:16px;background:var(--cream);border:3px solid var(--ink);border-radius:14px;padding:8px 12px}
-.blurb-who{display:block;font-family:var(--f-comic);font-size:19px;letter-spacing:.04em}
+.blurb-who{display:block;font-family:var(--f-comic);font-weight:700;font-size:14px;letter-spacing:.04em}
 .all-filled{margin-top:12px;font-weight:800;font-size:16px;background:var(--yolk);border:3px solid var(--ink);padding:8px 12px;border-radius:8px}
 .posters{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:16px 14px;margin-top:16px;padding:0 4px}
 .poster{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;min-height:96px;padding:14px 8px 26px;
@@ -192,23 +194,23 @@ ul{margin:0;padding:0;list-style:none}
 .poster::after{right:8px}
 .poster:active{transform:translate(2px,2px)!important}
 .poster-more{background:var(--pumpkin)}
-.p-w{font-family:var(--f-comic);font-size:14px;letter-spacing:.2em}
-.p-name{font-family:var(--f-comic);font-size:21px;letter-spacing:.03em;line-height:1.05}
+.p-w{font-family:var(--f-comic);font-weight:700;font-size:13px;letter-spacing:.2em}
+.p-name{font-family:var(--f-comic);font-weight:700;font-size:16px;letter-spacing:.03em;line-height:1.05}
 .p-reward{font-size:15px;font-weight:700;margin-top:2px}
 .p-prog{font-weight:800;font-size:15px}
-.p-claim{position:absolute;right:-3px;bottom:-3px;background:var(--ink);color:var(--yolk);font-family:var(--f-comic);font-size:15px;letter-spacing:.05em;
+.p-claim{position:absolute;right:-3px;bottom:-3px;background:var(--ink);color:var(--yolk);font-family:var(--f-comic);font-weight:700;font-size:13px;letter-spacing:.05em;
   padding:3px 9px;border-radius:8px 0 12px 0}
 .more-wanted{margin-top:16px;width:100%}
-.more-wanted{font-family:var(--f-comic);font-size:21px;letter-spacing:.05em}
+.more-wanted{font-family:var(--f-comic);font-weight:700;font-size:16px;letter-spacing:.05em}
 .covered{margin-top:16px;border-top:3px dashed var(--covered);padding-top:8px}
-.covered-h{font-family:var(--f-comic);font-weight:400;font-size:20px;letter-spacing:.08em;color:var(--covered)}
+.covered-h{font-family:var(--f-comic);font-weight:700;font-size:15px;letter-spacing:.08em;color:var(--covered)}
 .covered-list li{color:var(--covered);font-size:15px;font-weight:700;padding:3px 0;overflow-wrap:anywhere}
-.covered-list s{font-family:var(--f-comic);font-weight:400;font-size:17px;letter-spacing:.04em}
+.covered-list s{font-family:var(--f-comic);font-weight:700;font-size:13px;letter-spacing:.04em}
 
 /* ---------- ritual ---------- */
 .ritual{scroll-margin-top:10px}
 .ritual form{display:grid;gap:18px}
-.panel-title{font-family:var(--f-comic);font-weight:400;font-size:25px;letter-spacing:.04em;line-height:1.05;margin-bottom:8px}
+.panel-title{font-family:var(--f-comic);font-weight:700;font-size:19px;letter-spacing:.04em;line-height:1.05;margin-bottom:8px}
 .lbl{display:block;font-weight:800;font-size:16px;margin:10px 0 6px}
 .panel-title+.lbl{margin-top:0}
 .field{display:block;width:100%;height:52px;padding:0 12px;font-size:18px;font-family:var(--f-body);background:var(--white);color:var(--ink);
@@ -221,7 +223,7 @@ ul{margin:0;padding:0;list-style:none}
 .cat{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:80px;min-width:0;padding:6px 2px;background:var(--white);
   border:3px solid var(--ink);border-radius:8px;box-shadow:3px 3px 0 var(--ink);color:var(--ink)}
 .cat-ic svg{display:block}
-.cat-name{font-family:var(--f-comic);font-size:18px;letter-spacing:.03em;line-height:1}
+.cat-name{font-family:var(--f-comic);font-weight:700;font-size:14px;letter-spacing:.03em;line-height:1}
 .cat-count{font-weight:800;font-size:15px;line-height:1}
 .cat[aria-pressed="true"]{background:var(--ink);color:var(--yolk);box-shadow:3px 3px 0 var(--kapow)}
 .fx-squash{animation:squash .4s ease-out}
@@ -266,10 +268,10 @@ ul{margin:0;padding:0;list-style:none}
 .snd[aria-pressed="true"]{background:var(--yolk);color:var(--ink);border-color:var(--yolk)}
 .snd-bar{flex:none;width:56px;min-height:48px;flex-direction:column;gap:0;padding:0}
 .snd-bar .snd-ic{font-size:19px;line-height:1}
-.snd-bar .snd-short{font-family:var(--f-comic);font-size:15px;letter-spacing:.05em;line-height:1}
+.snd-bar .snd-short{font-family:var(--f-comic);font-weight:700;font-size:13px;letter-spacing:.05em;line-height:1}
 .snd-bar .snd-text,.snd-bar .snd-sub{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
 .snd-hero{min-height:44px;padding:4px 12px;flex-wrap:wrap;max-width:240px}
-.snd-hero .snd-text{font-family:var(--f-comic);font-size:18px;letter-spacing:.05em}
+.snd-hero .snd-text{font-family:var(--f-comic);font-weight:700;font-size:14px;letter-spacing:.05em}
 .snd-hero .snd-sub{font-size:14px;font-weight:700;flex-basis:100%;text-align:center}
 .snd-hero .snd-sub:empty{display:none}
 .snd-hero .snd-short{display:none}
@@ -282,7 +284,7 @@ body.typing .toasts{bottom:auto;top:calc(10px + var(--safe-t))}
   border-radius:10px;padding:10px 12px;font-weight:700;font-size:16px;box-shadow:4px 4px 0 var(--kapow);overflow-wrap:anywhere;animation:toast-in .25s ease-out}
 .toast-err{background:var(--kapow);border-color:var(--ink);box-shadow:4px 4px 0 var(--ink)}
 .toast-msg{flex:1;min-width:0}
-.toast-act{flex:none;min-height:44px;min-width:64px;padding:0 12px;background:var(--yolk);color:var(--ink);border:2px solid var(--ink);border-radius:8px;font-family:var(--f-comic);font-size:19px;letter-spacing:.05em}
+.toast-act{flex:none;min-height:44px;min-width:64px;padding:0 12px;background:var(--yolk);color:var(--ink);border:2px solid var(--ink);border-radius:8px;font-family:var(--f-comic);font-weight:700;font-size:14px;letter-spacing:.05em}
 .toast.out{opacity:0;transition:opacity .3s}
 @keyframes toast-in{from{transform:translateY(12px);opacity:0}to{transform:none;opacity:1}}
 
@@ -310,7 +312,7 @@ body.typing .toasts{bottom:auto;top:calc(10px + var(--safe-t))}
 .fx-layer{position:fixed;inset:0;pointer-events:none;z-index:61;overflow:hidden}
 .fx-sticker{position:absolute;pointer-events:none}
 .fx-sticker svg{width:100%;height:100%;display:block;overflow:visible}
-.fx-word{position:absolute;transform:translate(-50%,-100%);font-family:var(--f-comic);font-size:28px;letter-spacing:.05em;color:var(--yolk);white-space:nowrap;
+.fx-word{position:absolute;transform:translate(-50%,-100%);font-family:var(--f-comic);font-weight:700;font-size:21px;letter-spacing:.05em;color:var(--yolk);white-space:nowrap;
   text-shadow:-2px -2px 0 var(--ink),2px -2px 0 var(--ink),-2px 2px 0 var(--ink),2px 2px 0 var(--ink),4px 4px 0 var(--kapow);pointer-events:none}
 .fx-pop{animation:fx-pop 1.2s cubic-bezier(.2,1.4,.4,1) forwards}
 @keyframes fx-pop{0%{transform:scale(.2) rotate(-20deg);opacity:0}25%{transform:scale(1.15) rotate(4deg);opacity:1}40%{transform:scale(1) rotate(0)}80%{opacity:1}100%{transform:scale(1.05);opacity:0}}
@@ -329,7 +331,7 @@ body.typing .toasts{bottom:auto;top:calc(10px + var(--safe-t))}
 .fx-shine-txt{position:absolute;left:0;top:0;white-space:nowrap;text-align:center;color:var(--white);text-shadow:none;opacity:.9}
 .fx-layer>div{position:absolute}
 .fx-cap{transform:translate(-50%,-50%);width:max-content;max-width:min(92vw,520px)}
-.fx-cap-in{display:block;font-family:var(--f-comic);font-size:30px;letter-spacing:.04em;line-height:1.05;text-align:center;color:var(--ink);
+.fx-cap-in{display:block;font-family:var(--f-comic);font-weight:700;font-size:22px;letter-spacing:.04em;line-height:1.05;text-align:center;color:var(--ink);
   background:var(--yolk);border:3px solid var(--ink);border-radius:8px;padding:6px 12px;box-shadow:4px 4px 0 var(--kapow);overflow-wrap:anywhere}
 .fx-cap-word .fx-cap-in{background:none;border:0;box-shadow:none;padding:0;color:var(--yolk);font-size:30px;
   text-shadow:-2px -2px 0 var(--ink),2px -2px 0 var(--ink),-2px 2px 0 var(--ink),2px 2px 0 var(--ink),4px 4px 0 var(--kapow)}
@@ -341,13 +343,13 @@ body.typing .toasts{bottom:auto;top:calc(10px + var(--safe-t))}
 .fx-cool-don,.fx-sign-don{flex:none;display:block;width:88px;height:97px}
 .fx-sign-wrap{left:0!important;transform:none;align-items:center}
 .fx-sign-don{margin-left:-22px}
-.fx-sign{display:block;max-width:210px;font-family:var(--f-comic);font-size:22px;letter-spacing:.04em;line-height:1.1;color:var(--ink);background:var(--cream);
+.fx-sign{display:block;max-width:210px;font-family:var(--f-comic);font-weight:700;font-size:16px;letter-spacing:.04em;line-height:1.1;color:var(--ink);background:var(--cream);
   border:3px solid var(--ink);border-radius:4px;padding:8px 10px;box-shadow:4px 4px 0 var(--gravy);transform:rotate(-4deg)}
 .fx-flare{border:4px solid var(--gold);border-radius:50%;box-shadow:0 0 0 3px #FFD23F66}
 .fx-yoink{position:absolute!important;margin:0;pointer-events:none;transform-origin:0 0}
 .fx-don-fly{transform-origin:50% 50%}
 .fx-ticker{left:0!important;right:0;top:0!important;padding:calc(10px + var(--safe-t)) 12px 10px;background:var(--kapow);color:var(--cream);
-  border-bottom:3px solid var(--ink);box-shadow:0 4px 0 var(--ink);font-family:var(--f-comic);font-size:21px;letter-spacing:.04em;line-height:1.2;
+  border-bottom:3px solid var(--ink);box-shadow:0 4px 0 var(--ink);font-family:var(--f-comic);font-weight:700;font-size:16px;letter-spacing:.04em;line-height:1.2;
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .fx-ticker-lab{background:var(--yolk);color:var(--ink);padding:0 6px;border-radius:3px;margin-right:4px}
 
@@ -386,9 +388,68 @@ html.reduced .skel{animation:none!important}
   .ledger-sum{text-align:center}
   .puppet{height:70px}
 }
+
+/* ---------- explicit guidance: steps, giant button, lead lines ---------- */
+.steps{list-style:none;margin:12px 0 14px;display:grid;gap:8px}
+.steps li{display:flex;align-items:center;gap:10px;background:#FFF3D61F;border:2px solid #FFF3D666;border-radius:10px;padding:8px 10px;font-weight:800;font-size:17px;line-height:1.2}
+.step-n{flex:none;display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:var(--yolk);color:var(--ink);
+  border:2px solid var(--ink);font-family:var(--f-comic);font-weight:900;font-size:17px;line-height:1}
+.panel-title{display:flex;align-items:center;gap:10px}
+.lead{font-size:17px;font-weight:700;line-height:1.35;margin:0 0 12px}
+.btn-giant{min-height:92px;border-width:4px;border-radius:14px;box-shadow:0 6px 0 var(--ink),0 0 0 4px var(--yolk);animation:giant-pulse 1.7s ease-in-out infinite}
+.btn-giant .btn-main{font-size:clamp(24px,7.4vw,32px);letter-spacing:.05em}
+.btn-giant .btn-sub{font-size:16px}
+.btn-arrow{font-size:20px;line-height:1;color:var(--yolk);animation:arrow-bob 1s ease-in-out infinite}
+@keyframes giant-pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.03)}}
+@keyframes arrow-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+.btn-seal .btn-main{font-size:26px}
+.ctas{margin:4px 0 12px}
+
+/* ---------- splash ---------- */
+.splash{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:20px;padding-top:calc(20px + var(--safe-t));padding-bottom:calc(20px + var(--safe-b));
+  background:radial-gradient(ellipse at 50% 38%,#4a2a14 0,#241610 45%,#0c0807 100%);color:var(--cream);overflow:hidden;transition:opacity .4s;cursor:pointer}
+.splash.out{opacity:0;pointer-events:none}
+html.no-splash .splash{display:none}
+html.splash-on{overflow:hidden}
+.splash-rays{position:absolute;inset:-35%;background:repeating-conic-gradient(from 0deg at 50% 40%,#D4A24C26 0 5deg,transparent 5deg 15deg);animation:rays-spin 50s linear infinite}
+@keyframes rays-spin{to{transform:rotate(360deg)}}
+.leaves i{position:absolute;top:-10%;font-style:normal;font-size:26px;opacity:.9;animation:leaf-fall 9s linear infinite}
+.leaves i:nth-child(1){left:6%;animation-delay:0s}.leaves i:nth-child(2){left:20%;animation-delay:2.5s;font-size:22px}
+.leaves i:nth-child(3){left:34%;animation-delay:5s}.leaves i:nth-child(4){left:48%;animation-delay:1.2s;font-size:30px}
+.leaves i:nth-child(5){left:62%;animation-delay:6.4s}.leaves i:nth-child(6){left:76%;animation-delay:3.4s;font-size:22px}
+.leaves i:nth-child(7){left:88%;animation-delay:7.6s}.leaves i:nth-child(8){left:14%;animation-delay:4.2s;font-size:20px}
+@keyframes leaf-fall{0%{transform:translate(0,0) rotate(0)}50%{transform:translate(30px,55vh) rotate(180deg)}100%{transform:translate(-20px,115vh) rotate(380deg)}}
+.splash-inner{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;max-width:420px;width:100%}
+.splash-pre{font-family:var(--f-comic);font-weight:700;font-size:13px;letter-spacing:.4em;color:var(--gold)}
+.splash-art{width:140px;height:155px;margin:8px 0 4px;animation:splash-bob 3s ease-in-out infinite;filter:drop-shadow(0 8px 14px #000)}
+.splash-art svg{display:block;width:100%;height:100%}
+@keyframes splash-bob{0%,100%{transform:translateY(0) rotate(-1.5deg)}50%{transform:translateY(-8px) rotate(1.5deg)}}
+.splash-title{font-family:var(--f-title);font-weight:900;font-size:clamp(32px,10vw,64px);line-height:1;letter-spacing:.02em;color:var(--gold);
+  text-shadow:0 3px 0 #000,0 0 26px #D4A24C77;animation:splash-rise .9s ease-out both}
+@keyframes splash-rise{from{transform:translateY(14px) scale(.94);opacity:0}to{transform:none;opacity:1}}
+.splash-sub{font-family:var(--f-serif);font-style:italic;font-weight:700;font-size:20px;margin-top:10px;color:var(--cream)}
+.splash-date{font-family:var(--f-comic);font-weight:700;font-size:16px;letter-spacing:.2em;color:var(--yolk);margin-top:10px}
+.splash-go{margin-top:22px;max-width:360px;border-color:var(--cream)}
+.splash-help{margin-top:12px;font-size:15px;font-weight:700;opacity:.85}
+@media (max-height:620px){.splash-art{width:96px;height:106px}.splash-go{margin-top:14px;min-height:76px}}
+@media (prefers-reduced-motion:reduce){.splash *,.btn-giant,.btn-arrow{animation:none!important}}
 </style>
 </head>
 <body>
+<noscript><style>.splash{display:none!important}</style></noscript>
+<div id="splash" class="splash" role="dialog" aria-modal="true" aria-labelledby="splashTitle">
+  <div class="splash-rays" aria-hidden="true"></div>
+  <div class="leaves" aria-hidden="true"><i>🍂</i><i>🍁</i><i>🍂</i><i>🍁</i><i>🍂</i><i>🍁</i><i>🍂</i><i>🍁</i></div>
+  <div class="splash-inner">
+    <p class="splash-pre">THE HOST PRESENTS</p>
+    <div class="splash-art" id="splashArt" aria-hidden="true"></div>
+    <h2 id="splashTitle" class="splash-title">FRANSGIVIN</h2>
+    <p class="splash-sub">An offer you can't refuse</p>
+    <p class="splash-date">SAT NOV 21 · 6:30 PM</p>
+    <button type="button" id="splashGo" class="btn btn-kapow btn-giant splash-go"><span class="btn-main">ENTER</span><span class="btn-sub">see what everyone is bringing and add your dish</span></button>
+    <p class="splash-help">Takes about 20 seconds.</p>
+  </div>
+</div>
 <canvas id="fx" class="fx-canvas" aria-hidden="true"></canvas>
 <div id="banner" class="banner" role="status" hidden><span id="bannerText"></span> <button type="button" id="bannerRetry" class="banner-btn" hidden>RETRY</button></div>
 <div id="testStrip" class="test-strip" role="status" hidden></div>
@@ -403,9 +464,16 @@ html.reduced .skel{animation:none!important}
   <div class="puppet" id="puppetArt" aria-hidden="true"></div>
   <h1 class="logo">FRANSGIVIN</h1>
   <p class="date">SAT NOV 21 · 6:30PM</p>
-  <p class="tagline">This November, the Family eats together.</p>
-  <p class="invite">Bring foods and booze. Plz help us clean after.</p>
-  <p class="invite invite-2">Skip the boring classics. Bring a dish you actually love: a family recipe, your culture's greatest hit, anything.</p>
+  <p class="tagline">Friendsgiving potluck. Everyone brings something to eat or drink.</p>
+  <ol class="steps" aria-label="How it works">
+    <li><span class="step-n">1</span><span>Tap the big red button.</span></li>
+    <li><span class="step-n">2</span><span>Type your name and what you're bringing.</span></li>
+    <li><span class="step-n">3</span><span>Tap SUBMIT. You're on the list.</span></li>
+  </ol>
+  <div class="ctas">
+    <a href="#ritual" class="btn btn-kapow btn-giant js-pledge"><span class="btn-main">PLEDGE A DISH</span><span class="btn-sub">tap here to add what you're bringing</span><span class="btn-arrow" aria-hidden="true">▼</span></a>
+  </div>
+  <p class="invite invite-2">Skip the boring classics. Bring a dish you actually love: a family recipe, your culture's greatest hit, anything. Plz help us clean after.</p>
   <div class="don-row">
     <div class="bubble-wrap">
       <p id="donBubble" class="bubble" aria-live="polite">You come to my table… on the day of the Friendsgiving.</p>
@@ -414,10 +482,6 @@ html.reduced .skel{animation:none!important}
     <button type="button" id="donBtn" class="don-btn" aria-label="Poke the Don"><span id="donArt" class="don-art" aria-hidden="true"></span></button>
   </div>
   <button type="button" id="pendingNotice" class="pending-notice" hidden></button>
-  <div class="ctas">
-    <a href="#ritual" class="btn btn-kapow js-pledge"><span class="btn-main">PLEDGE A DISH</span><span class="btn-sub">add what you're bringing</span></a>
-    <a href="https://partiful.com/e/LpbfENX8UetYLqdel5bw" target="_blank" rel="noopener" class="btn btn-yolk-outline"><span class="btn-main">RSVP ON PARTIFUL</span><span class="btn-sub">the official summons</span></a>
-  </div>
   <nav class="ledger" aria-label="The Ledger">
     <ul id="ledger" class="ledger-list">
       <li><button type="button" class="ledger-btn" data-cat="Main/Ham"><span class="lg-name">HAM:</span> <span class="lg-n">COVERED</span></button></li>
@@ -431,17 +495,60 @@ html.reduced .skel{animation:none!important}
   <p id="ledgerSum" class="ledger-sum">0 offers on the table · 18 still WANTED</p>
 </header>
 
+<section id="ritual" class="section ritual" aria-labelledby="ritualTitle">
+  <h2 id="ritualTitle" class="sec-title">PLEDGE A DISH</h2>
+  <p class="lead">Do the 3 steps below, then tap the red SUBMIT button. Your dish will show up on the list under this form for everyone to see.</p>
+  <form id="form" novalidate>
+    <div class="panel tilt-l">
+      <h3 class="panel-title"><span class="step-n">1</span>YOUR NAME</h3>
+      <label for="nameIn" class="lbl">Type your first name or a nickname:</label>
+      <input id="nameIn" name="name" class="field" type="text" maxlength="30" autocomplete="given-name" enterkeyhint="done" autocapitalize="words" spellcheck="false" placeholder="First name or nickname">
+    </div>
+    <div class="panel tilt-r">
+      <h3 class="panel-title"><span class="step-n">2</span>WHAT ARE YOU BRINGING?</h3>
+      <p id="catLbl" class="lbl">First, tap a category:</p>
+      <div id="cats" class="cats" role="group" aria-labelledby="catLbl">
+        <button type="button" class="cat" data-cat="Main/Ham" aria-pressed="false"><span class="cat-ic" aria-hidden="true"></span><span class="cat-name">MAIN/HAM</span><span class="cat-count">0</span></button>
+        <button type="button" class="cat" data-cat="Sides" aria-pressed="false"><span class="cat-ic" aria-hidden="true"></span><span class="cat-name">SIDES</span><span class="cat-count">0</span></button>
+        <button type="button" class="cat" data-cat="Apps" aria-pressed="false"><span class="cat-ic" aria-hidden="true"></span><span class="cat-name">APPS</span><span class="cat-count">0</span></button>
+        <button type="button" class="cat" data-cat="Desserts" aria-pressed="false"><span class="cat-ic" aria-hidden="true"></span><span class="cat-name">DESSERTS</span><span class="cat-count">0</span></button>
+        <button type="button" class="cat" data-cat="Booze" aria-pressed="false"><span class="cat-ic" aria-hidden="true"></span><span class="cat-name">BOOZE</span><span class="cat-count">0</span></button>
+        <button type="button" class="cat" data-cat="Other" aria-pressed="false"><span class="cat-ic" aria-hidden="true"></span><span class="cat-name">OTHER</span><span class="cat-count">0</span></button>
+      </div>
+      <p id="hamNote" class="ham-note" hidden>The Host has the ham covered. A second main? Bold. Allowed.</p>
+      <label for="dishIn" class="lbl">Then type the dish (you can leave this blank):</label>
+      <input id="dishIn" name="dish" class="field" type="text" maxlength="60" autocomplete="off" enterkeyhint="done" autocapitalize="sentences" placeholder="e.g. Grandma's mac n cheese">
+      <div id="dupStrip" class="dup-strip" aria-live="polite" hidden></div>
+      <p id="notesLbl" class="lbl">Anything we should know? (optional, tap all that apply)</p>
+      <div id="notes" class="chips" role="group" aria-labelledby="notesLbl">
+        <button type="button" class="chip" aria-pressed="false" data-note="VEGAN">VEGAN</button>
+        <button type="button" class="chip" aria-pressed="false" data-note="GLUTEN-FREE">GLUTEN-FREE</button>
+        <button type="button" class="chip" aria-pressed="false" data-note="NEEDS OVEN">NEEDS OVEN</button>
+        <button type="button" class="chip" aria-pressed="false" data-note="NEEDS FRIDGE">NEEDS FRIDGE</button>
+        <button type="button" class="chip" aria-pressed="false" data-note="NUT-FREE">NUT-FREE</button>
+      </div>
+      <div class="hp" aria-hidden="true"><input id="hpIn" type="text" name="website" tabindex="-1" autocomplete="off"></div>
+    </div>
+    <div class="panel tilt-l seal-panel">
+      <h3 class="panel-title"><span class="step-n">3</span>SUBMIT</h3>
+      <button type="submit" id="sealBtn" class="btn btn-kapow btn-seal"><span class="btn-main">SUBMIT MY DISH</span><span id="sealSub" class="btn-sub">tap to add it to the list</span></button>
+      <p id="status" class="status" aria-live="polite"></p>
+    </div>
+  </form>
+</section>
+
 <section id="table" class="section table-sec" aria-labelledby="tableTitle">
-  <h2 id="tableTitle" class="sec-title">THE FAMILY'S TABLE</h2>
+  <h2 id="tableTitle" class="sec-title">WHAT PEOPLE ARE ALREADY BRINGING</h2>
+  <p class="lead">This is the live list of what your friends have already signed up for. Check it before you pick, so we don't end up with five of the same dish.</p>
   <button type="button" id="hamCard" class="ham-card" aria-label="The Host's ham">
     <span id="hamArt" class="ham-art" aria-hidden="true"></span>
-    <span class="ham-text"><span class="dish">THE HAM</span> <span class="meta">— Tom Hamgen, by the Host. (Ham would be cool.)</span></span>
+    <span class="ham-text"><span class="dish">THE HAM</span> <span class="meta">— the host is bringing this one.</span></span>
   </button>
   <div id="tableLoading" class="loading">
     <ul class="cards"><li class="skel"></li><li class="skel"></li><li class="skel"></li></ul>
     <p class="loading-line">Consulting the Family ledger…</p>
   </div>
-  <p id="tableEmpty" class="empty empty-all" hidden>The table is empty. Nobody disrespects the Family like this. Be the first.</p>
+  <p id="tableEmpty" class="empty empty-all" hidden>Nobody has signed up yet. Be the first: tap PLEDGE A DISH above.</p>
   <div id="catPanels" class="cat-panels">
     <section class="cat-panel" id="cat-main" data-cat="Main/Ham"><div class="cat-head"><h3 class="cat-h">MAIN/HAM · <span class="cat-n">0</span></h3><p class="cat-status"></p></div><ul class="cards"></ul><p class="empty">Nothing here yet. Fredo is here, but Fredo brought nothing. Don't be Fredo.</p></section>
     <section class="cat-panel" id="cat-sides" data-cat="Sides"><div class="cat-head"><h3 class="cat-h">SIDES · <span class="cat-n">0</span></h3><p class="cat-status">THE FAMILY HUNGERS FOR MORE.</p></div><ul class="cards"></ul><p class="empty">No sides yet. Somebody's gonna have to step up.</p></section>
@@ -453,21 +560,21 @@ html.reduced .skel{animation:none!important}
 </section>
 
 <section id="wanted" class="section wanted-sec" aria-labelledby="wantedTitle">
-  <h2 id="wantedTitle" class="sec-title">WANTED BOARD</h2>
+  <h2 id="wantedTitle" class="sec-title">NOT SURE? WE STILL NEED THESE</h2>
   <div class="hamgen-row">
     <span id="hamgenArt" class="hamgen-art" aria-hidden="true"></span>
-    <p class="blurb"><span class="blurb-who">Tom Hamgen's List</span> The Family requires the following. Tap one and it's yours. Skip the boring Thanksgiving classics: bring a dish you love, from your family or your culture. It does not have to be Thanksgiving. Many, many sides and apps.</p>
+    <p class="blurb"><span class="blurb-who">Tom Hamgen's List</span> Not sure what to bring? Tap any card below and it starts your pledge for you. Skip the boring Thanksgiving classics: bring a dish you love, from your family or your culture. It does not have to be Thanksgiving. Many, many sides and apps.</p>
   </div>
   <p id="allFilled" class="all-filled" hidden>All filled. More sides anyway. Sides are love.</p>
   <ul id="posters" class="posters">
-    <li><button type="button" class="poster" data-idx="0"><span class="p-w">WANTED</span><span class="p-name">Cranberries</span><span class="p-claim">CLAIM ›</span></button></li>
-    <li><button type="button" class="poster" data-idx="1"><span class="p-w">WANTED</span><span class="p-name">Your Family's Secret Side</span><span class="p-claim">CLAIM ›</span></button></li>
-    <li><button type="button" class="poster" data-idx="2"><span class="p-w">WANTED</span><span class="p-name">Finger Food From Your Culture</span><span class="p-claim">CLAIM ›</span></button></li>
-    <li><button type="button" class="poster" data-idx="3"><span class="p-w">WANTED</span><span class="p-name">Dumplings, Empanadas, Anything Wrapped</span><span class="p-claim">CLAIM ›</span></button></li>
-    <li><button type="button" class="poster" data-idx="4"><span class="p-w">WANTED</span><span class="p-name">A Dip or Spread</span><span class="p-claim">CLAIM ›</span></button></li>
-    <li><button type="button" class="poster" data-idx="5"><span class="p-w">WANTED</span><span class="p-name">Rice or Noodles</span><span class="p-claim">CLAIM ›</span></button></li>
-    <li><button type="button" class="poster poster-more" data-idx="more"><span class="p-w">WANTED:</span><span class="p-name">MORE SIDES</span><span class="p-reward">Reward: eternal respect</span><span class="p-claim">CLAIM ›</span></button></li>
-    <li><button type="button" class="poster poster-more" data-idx="moreApps"><span class="p-w">WANTED:</span><span class="p-name">MORE APPS</span><span class="p-reward">Reward: first dibs on leftovers</span><span class="p-claim">CLAIM ›</span></button></li>
+    <li><button type="button" class="poster" data-idx="0"><span class="p-w">WANTED</span><span class="p-name">Cranberries</span><span class="p-claim">PLEDGE THIS ›</span></button></li>
+    <li><button type="button" class="poster" data-idx="1"><span class="p-w">WANTED</span><span class="p-name">Your Family's Secret Side</span><span class="p-claim">PLEDGE THIS ›</span></button></li>
+    <li><button type="button" class="poster" data-idx="2"><span class="p-w">WANTED</span><span class="p-name">Finger Food From Your Culture</span><span class="p-claim">PLEDGE THIS ›</span></button></li>
+    <li><button type="button" class="poster" data-idx="3"><span class="p-w">WANTED</span><span class="p-name">Dumplings, Empanadas, Anything Wrapped</span><span class="p-claim">PLEDGE THIS ›</span></button></li>
+    <li><button type="button" class="poster" data-idx="4"><span class="p-w">WANTED</span><span class="p-name">A Dip or Spread</span><span class="p-claim">PLEDGE THIS ›</span></button></li>
+    <li><button type="button" class="poster" data-idx="5"><span class="p-w">WANTED</span><span class="p-name">Rice or Noodles</span><span class="p-claim">PLEDGE THIS ›</span></button></li>
+    <li><button type="button" class="poster poster-more" data-idx="more"><span class="p-w">WANTED:</span><span class="p-name">MORE SIDES</span><span class="p-reward">Reward: eternal respect</span><span class="p-claim">PLEDGE THIS ›</span></button></li>
+    <li><button type="button" class="poster poster-more" data-idx="moreApps"><span class="p-w">WANTED:</span><span class="p-name">MORE APPS</span><span class="p-reward">Reward: first dibs on leftovers</span><span class="p-claim">PLEDGE THIS ›</span></button></li>
   </ul>
   <button type="button" id="moreWanted" class="btn-link more-wanted" aria-expanded="false" aria-controls="posters" hidden>+12 MORE WANTED</button>
   <div class="covered">
@@ -476,53 +583,12 @@ html.reduced .skel{animation:none!important}
   </div>
 </section>
 
-<section id="ritual" class="section ritual" aria-labelledby="ritualTitle">
-  <h2 id="ritualTitle" class="sec-title">THE RITUAL</h2>
-  <form id="form" novalidate>
-    <div class="panel tilt-l">
-      <h3 class="panel-title">SPEAK, FRIEND</h3>
-      <label for="nameIn" class="lbl">What does the Family call you?</label>
-      <input id="nameIn" name="name" class="field" type="text" maxlength="30" autocomplete="given-name" enterkeyhint="done" autocapitalize="words" spellcheck="false" placeholder="First name or nickname">
-    </div>
-    <div class="panel tilt-r">
-      <h3 class="panel-title">WHAT DO YOU BRING THE FAMILY?</h3>
-      <p id="catLbl" class="lbl">Pick a category</p>
-      <div id="cats" class="cats" role="group" aria-labelledby="catLbl">
-        <button type="button" class="cat" data-cat="Main/Ham" aria-pressed="false"><span class="cat-ic" aria-hidden="true"></span><span class="cat-name">MAIN/HAM</span><span class="cat-count">0</span></button>
-        <button type="button" class="cat" data-cat="Sides" aria-pressed="false"><span class="cat-ic" aria-hidden="true"></span><span class="cat-name">SIDES</span><span class="cat-count">0</span></button>
-        <button type="button" class="cat" data-cat="Apps" aria-pressed="false"><span class="cat-ic" aria-hidden="true"></span><span class="cat-name">APPS</span><span class="cat-count">0</span></button>
-        <button type="button" class="cat" data-cat="Desserts" aria-pressed="false"><span class="cat-ic" aria-hidden="true"></span><span class="cat-name">DESSERTS</span><span class="cat-count">0</span></button>
-        <button type="button" class="cat" data-cat="Booze" aria-pressed="false"><span class="cat-ic" aria-hidden="true"></span><span class="cat-name">BOOZE</span><span class="cat-count">0</span></button>
-        <button type="button" class="cat" data-cat="Other" aria-pressed="false"><span class="cat-ic" aria-hidden="true"></span><span class="cat-name">OTHER</span><span class="cat-count">0</span></button>
-      </div>
-      <p id="hamNote" class="ham-note" hidden>The Host has the ham covered. A second main? Bold. Allowed.</p>
-      <label for="dishIn" class="lbl">What are you bringing? (optional)</label>
-      <input id="dishIn" name="dish" class="field" type="text" maxlength="60" autocomplete="off" enterkeyhint="done" autocapitalize="sentences" placeholder="e.g. Grandma's mac n cheese">
-      <div id="dupStrip" class="dup-strip" aria-live="polite" hidden></div>
-      <p id="notesLbl" class="lbl">Any notes? (optional, tap all that apply)</p>
-      <div id="notes" class="chips" role="group" aria-labelledby="notesLbl">
-        <button type="button" class="chip" aria-pressed="false" data-note="VEGAN">VEGAN</button>
-        <button type="button" class="chip" aria-pressed="false" data-note="GLUTEN-FREE">GLUTEN-FREE</button>
-        <button type="button" class="chip" aria-pressed="false" data-note="NEEDS OVEN">NEEDS OVEN</button>
-        <button type="button" class="chip" aria-pressed="false" data-note="NEEDS FRIDGE">NEEDS FRIDGE</button>
-        <button type="button" class="chip" aria-pressed="false" data-note="NUT-FREE">NUT-FREE</button>
-      </div>
-      <div class="hp" aria-hidden="true"><input id="hpIn" type="text" name="website" tabindex="-1" autocomplete="off"></div>
-    </div>
-    <div class="panel tilt-l seal-panel">
-      <button type="submit" id="sealBtn" class="btn btn-kapow btn-seal"><span class="btn-main">SEAL THE DEAL 🤝</span><span id="sealSub" class="btn-sub">add my dish</span></button>
-      <p id="status" class="status" aria-live="polite"></p>
-    </div>
-  </form>
-</section>
-
 <section id="rules" class="section panel rules tilt-r" aria-labelledby="rulesTitle">
   <h2 id="rulesTitle" class="sec-title">HOUSE RULES</h2>
   <p>We don't discuss business at the table. We discuss dishes. Then we DO the dishes. Plz help us clean after.</p>
 </section>
 
 <footer id="foot" class="foot">
-  <a href="https://partiful.com/e/LpbfENX8UetYLqdel5bw" target="_blank" rel="noopener" class="btn btn-yolk"><span class="btn-main">RSVP ON PARTIFUL</span><span class="btn-sub">the official summons</span></a>
   <p class="foot-line">Need to change something from a different phone? Text the host. The host can fix the books.</p>
   <p class="foot-small">Open in Safari/Chrome to keep your edit button.</p>
   <button type="button" id="calmBtn" class="btn-link calm-btn" aria-pressed="false"><span class="btn-main">CALM THE FAMILY</span><span class="btn-sub">fewer explosions</span></button>
@@ -534,7 +600,7 @@ html.reduced .skel{animation:none!important}
 </main>
 
 <div id="bar" class="bar">
-  <a href="#ritual" class="btn btn-kapow bar-pledge js-pledge"><span class="btn-main">PLEDGE A DISH</span><span class="btn-sub">add what you're bringing</span></a>
+  <a href="#ritual" class="btn btn-kapow bar-pledge js-pledge"><span class="btn-main">PLEDGE A DISH</span><span class="btn-sub">tap here to add what you're bringing</span></a>
   <button type="button" class="snd snd-bar js-sound" aria-pressed="false"><span class="snd-ic" aria-hidden="true">🔇</span> <span class="snd-text">SOUND: OFF</span><span class="snd-sub">the Don naps</span><span class="snd-short" aria-hidden="true">OFF</span></button>
 </div>
 <div id="toasts" class="toasts" aria-live="polite"></div>
@@ -555,6 +621,35 @@ html.reduced .skel{animation:none!important}
     </div>
   </div>
 </div>
+
+<script>
+(function () {
+  var s = document.getElementById('splash');
+  if (!s) return;
+  var root = document.documentElement;
+  if (/(^| )no-splash( |$)/.test(root.className)) { s.parentNode.removeChild(s); return; }
+  root.className += ' splash-on';
+  var done = false, timer = 0, ids = ['stage', 'bar'];
+  function lock(v) { ids.forEach(function (id) { var e = document.getElementById(id); if (e) { try { e.inert = v; } catch (x) { /* optional */ } } }); }
+  function close() {
+    if (done) return; done = true; clearTimeout(timer);
+    try { sessionStorage.setItem('frans_splash', '1'); } catch (e) { /* private mode */ }
+    s.className += ' out'; lock(false);
+    root.className = root.className.replace(' splash-on', '');
+    window.scrollTo(0, 0);
+    setTimeout(function () {
+      if (s.parentNode) s.parentNode.removeChild(s);
+      try { if (window.FX && FX.play) FX.play('hero', { hero: document.getElementById('hero'), logo: document.querySelector('.logo') }); } catch (e) { /* effects are optional */ }
+    }, 420);
+  }
+  lock(true);
+  s.addEventListener('click', close);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' || e.key === 'Enter') close(); });
+  timer = setTimeout(close, 9000);
+  var go = document.getElementById('splashGo');
+  try { go.focus({ preventScroll: true }); } catch (e) { /* ignore */ }
+})();
+</script>
 <script>
 const ENDPOINT = "https://script.google.com/macros/s/AKfycbxzHlGd1mSyA05s7sIaIC02YeDcdQ5uK3LDygcKjxFFWjhd2y-tyD4TpkX6uOrp5l4/exec"; /* @@ENDPOINT@@ */
 /* ---- dedupe.js ---- */
@@ -1121,21 +1216,21 @@ var ART = (function () {
   }
 
   /**
-   * Comic burst with a centered Bangers word.
+   * Comic burst with a centered word.
    * opts: {size, outer, inner, core, rotate, fontSize}
    */
   function burst(word, opts) {
     opts = opts || {};
     var w = String(word == null ? '' : word);
     var len = Math.max(3, Array.from(w).length);
-    var fs = opts.fontSize || Math.min(60, Math.floor(210 / (len * 0.56)));
+    var fs = opts.fontSize || Math.min(46, Math.floor(200 / (len * 0.95)));
     var rot = opts.rotate == null ? -8 : opts.rotate;
     return svg('-125 -125 250 250',
       '<polygon points="' + burstPoints(14, 110, 66) + '" fill="' + (opts.outer || C.kapow) + '" stroke="' + C.ink + '" stroke-width="4" stroke-linejoin="round"/>' +
       '<polygon points="' + burstPoints(14, 100, 60) + '" fill="' + (opts.inner || C.yolk) + '" stroke="' + C.ink + '" stroke-width="4" stroke-linejoin="round"/>' +
       '<circle r="30" fill="' + (opts.core || C.white) + '"/>' +
       (w ? '<text x="0" y="0" transform="rotate(' + rot + ')" text-anchor="middle" dominant-baseline="central" ' +
-        'font-family="Bangers, Impact, \'Arial Black\', sans-serif" font-size="' + fs + '" letter-spacing="1" fill="' + C.ink +
+        'font-family="Cinzel, Georgia, serif" font-size="' + fs + '" letter-spacing="1" fill="' + C.ink +
         '" stroke="' + C.white + '" stroke-width="6" paint-order="stroke" stroke-linejoin="round">' + esc(w) + '</text>' : ''),
       { size: opts.size, cls: 'burst-svg' });
   }
@@ -1243,9 +1338,9 @@ var ART = (function () {
     booze: '<rect x="4" y="13" width="9" height="16" rx="2" fill="' + C.kapow + '" stroke="' + C.ink + '" stroke-width="2"/><rect x="6.5" y="5" width="4" height="9" fill="' + C.kapow + '" stroke="' + C.ink + '" stroke-width="2"/>' +
       '<path d="M18 6 H29 Q29 15 23.5 16 Q18 15 18 6Z" fill="' + C.kapow + '" stroke="' + C.ink + '" stroke-width="2"/><path d="M23.5 16 V26 M19 27 H28" stroke="' + C.ink + '" stroke-width="2" stroke-linecap="round"/>',
     other: '<rect x="4" y="7" width="24" height="20" rx="2" fill="' + C.cream + '" stroke="' + C.ink + '" stroke-width="2.2"/><path d="M4 12 H28" stroke="' + C.ink + '" stroke-width="2"/>' +
-      '<text x="16" y="22" text-anchor="middle" dominant-baseline="central" font-family="Bangers, Impact, sans-serif" font-size="13" fill="' + C.ink + '">?</text>',
+      '<text x="16" y="22" text-anchor="middle" dominant-baseline="central" font-family="Cinzel, Georgia, serif" font-size="13" fill="' + C.ink + '">?</text>',
     mystery: '<rect x="4" y="7" width="24" height="20" rx="2" fill="' + C.yolk + '" stroke="' + C.ink + '" stroke-width="2.2"/><path d="M4 12 H28" stroke="' + C.ink + '" stroke-width="2"/>' +
-      '<text x="16" y="22" text-anchor="middle" dominant-baseline="central" font-family="Bangers, Impact, sans-serif" font-size="13" fill="' + C.ink + '">?</text>',
+      '<text x="16" y="22" text-anchor="middle" dominant-baseline="central" font-family="Cinzel, Georgia, serif" font-size="13" fill="' + C.ink + '">?</text>',
     fedora: '<polygon points="9,17 23,17 21,7 11,7" fill="' + C.ink + '"/><rect x="9" y="14" width="14" height="3" fill="' + C.kapow + '"/><ellipse cx="16" cy="18" rx="14" ry="3.5" fill="' + C.ink + '"/>'
   };
 
@@ -2528,7 +2623,7 @@ var FX = (function () {
     wantedLess: 'SHOW TOP 6 ONLY',
     coveredBy: ' COVERED by {names}',
     hamCovered: 'THE HAM: covered by the Host',
-    sealSub: 'add my dish',
+    sealSub: 'tap to add it to the list',
     demoSub: 'saved on this phone only',
     ledgerSum: '{n} {offers} on the table · {w} still WANTED',
     breaking1: 'BREAKING: {name} has made an offer: {dish}',
@@ -3109,7 +3204,7 @@ var FX = (function () {
     b.appendChild(h('span', 'p-w', 'WANTED'));
     b.appendChild(h('span', 'p-name', it.label));
     if (it.target > 1 && it.count > 0) b.appendChild(h('span', 'p-prog', it.count + '/' + it.target));
-    b.appendChild(h('span', 'p-claim', 'CLAIM ›'));
+    b.appendChild(h('span', 'p-claim', 'PLEDGE THIS ›'));
     li.appendChild(b);
     return li;
   }
@@ -3121,7 +3216,7 @@ var FX = (function () {
     b.appendChild(h('span', 'p-w', 'WANTED:'));
     b.appendChild(h('span', 'p-name', apps ? 'MORE APPS' : 'MORE SIDES'));
     b.appendChild(h('span', 'p-reward', apps ? 'Reward: first dibs on leftovers' : 'Reward: eternal respect'));
-    b.appendChild(h('span', 'p-claim', 'CLAIM ›'));
+    b.appendChild(h('span', 'p-claim', 'PLEDGE THIS ›'));
     li.appendChild(b);
     return li;
   }
@@ -3826,6 +3921,7 @@ var FX = (function () {
       ['hamgenArt', function () { return ART.hamgen(); }],
       ['spudsArt', function () { return ART.spuds(); }],
       ['puppetArt', function () { return ART.puppetHand(); }],
+      ['splashArt', function () { return ART.don({}); }],
       ['broomArt', function () { return ART.broom(); }]
     ];
     parts.forEach(function (p) {
@@ -3883,7 +3979,7 @@ var FX = (function () {
 
     render();
     if (qs.get('test') === '1') runSelfTest();
-    FX.play('hero', { hero: $('hero'), logo: document.querySelector('.logo') });
+    if (document.documentElement.className.indexOf('splash-on') < 0) FX.play('hero', { hero: $('hero'), logo: document.querySelector('.logo') });
     if (!NOT_LIVE) poll();
   }
 

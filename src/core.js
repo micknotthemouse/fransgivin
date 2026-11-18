@@ -131,7 +131,7 @@ const ENDPOINT = ""; /* @@ENDPOINT@@ */
     wantedLess: 'SHOW TOP 6 ONLY',
     coveredBy: ' COVERED by {names}',
     hamCovered: 'THE HAM: covered by the Host',
-    sealSub: 'add my dish',
+    sealSub: 'tap to add it to the list',
     demoSub: 'saved on this phone only',
     ledgerSum: '{n} {offers} on the table · {w} still WANTED',
     breaking1: 'BREAKING: {name} has made an offer: {dish}',
@@ -712,7 +712,7 @@ const ENDPOINT = ""; /* @@ENDPOINT@@ */
     b.appendChild(h('span', 'p-w', 'WANTED'));
     b.appendChild(h('span', 'p-name', it.label));
     if (it.target > 1 && it.count > 0) b.appendChild(h('span', 'p-prog', it.count + '/' + it.target));
-    b.appendChild(h('span', 'p-claim', 'CLAIM ›'));
+    b.appendChild(h('span', 'p-claim', 'PLEDGE THIS ›'));
     li.appendChild(b);
     return li;
   }
@@ -724,7 +724,7 @@ const ENDPOINT = ""; /* @@ENDPOINT@@ */
     b.appendChild(h('span', 'p-w', 'WANTED:'));
     b.appendChild(h('span', 'p-name', apps ? 'MORE APPS' : 'MORE SIDES'));
     b.appendChild(h('span', 'p-reward', apps ? 'Reward: first dibs on leftovers' : 'Reward: eternal respect'));
-    b.appendChild(h('span', 'p-claim', 'CLAIM ›'));
+    b.appendChild(h('span', 'p-claim', 'PLEDGE THIS ›'));
     li.appendChild(b);
     return li;
   }
@@ -1429,6 +1429,7 @@ const ENDPOINT = ""; /* @@ENDPOINT@@ */
       ['hamgenArt', function () { return ART.hamgen(); }],
       ['spudsArt', function () { return ART.spuds(); }],
       ['puppetArt', function () { return ART.puppetHand(); }],
+      ['splashArt', function () { return ART.don({}); }],
       ['broomArt', function () { return ART.broom(); }]
     ];
     parts.forEach(function (p) {
@@ -1486,7 +1487,7 @@ const ENDPOINT = ""; /* @@ENDPOINT@@ */
 
     render();
     if (qs.get('test') === '1') runSelfTest();
-    FX.play('hero', { hero: $('hero'), logo: document.querySelector('.logo') });
+    if (document.documentElement.className.indexOf('splash-on') < 0) FX.play('hero', { hero: $('hero'), logo: document.querySelector('.logo') });
     if (!NOT_LIVE) poll();
   }
 

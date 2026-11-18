@@ -1,4 +1,18 @@
 <body>
+<noscript><style>.splash{display:none!important}</style></noscript>
+<div id="splash" class="splash" role="dialog" aria-modal="true" aria-labelledby="splashTitle">
+  <div class="splash-rays" aria-hidden="true"></div>
+  <div class="leaves" aria-hidden="true"><i>🍂</i><i>🍁</i><i>🍂</i><i>🍁</i><i>🍂</i><i>🍁</i><i>🍂</i><i>🍁</i></div>
+  <div class="splash-inner">
+    <p class="splash-pre">THE HOST PRESENTS</p>
+    <div class="splash-art" id="splashArt" aria-hidden="true"></div>
+    <h2 id="splashTitle" class="splash-title">FRANSGIVIN</h2>
+    <p class="splash-sub">An offer you can't refuse</p>
+    <p class="splash-date">SAT NOV 21 · 6:30 PM</p>
+    <button type="button" id="splashGo" class="btn btn-kapow btn-giant splash-go"><span class="btn-main">ENTER</span><span class="btn-sub">see what everyone is bringing and add your dish</span></button>
+    <p class="splash-help">Takes about 20 seconds.</p>
+  </div>
+</div>
 <canvas id="fx" class="fx-canvas" aria-hidden="true"></canvas>
 <div id="banner" class="banner" role="status" hidden><span id="bannerText"></span> <button type="button" id="bannerRetry" class="banner-btn" hidden>RETRY</button></div>
 <div id="testStrip" class="test-strip" role="status" hidden></div>
@@ -13,9 +27,16 @@
   <div class="puppet" id="puppetArt" aria-hidden="true"></div>
   <h1 class="logo">FRANSGIVIN</h1>
   <p class="date">SAT NOV 21 · 6:30PM</p>
-  <p class="tagline">This November, the Family eats together.</p>
-  <p class="invite">Bring foods and booze. Plz help us clean after.</p>
-  <p class="invite invite-2">Skip the boring classics. Bring a dish you actually love: a family recipe, your culture's greatest hit, anything.</p>
+  <p class="tagline">Friendsgiving potluck. Everyone brings something to eat or drink.</p>
+  <ol class="steps" aria-label="How it works">
+    <li><span class="step-n">1</span><span>Tap the big red button.</span></li>
+    <li><span class="step-n">2</span><span>Type your name and what you're bringing.</span></li>
+    <li><span class="step-n">3</span><span>Tap SUBMIT. You're on the list.</span></li>
+  </ol>
+  <div class="ctas">
+    <a href="#ritual" class="btn btn-kapow btn-giant js-pledge"><span class="btn-main">PLEDGE A DISH</span><span class="btn-sub">tap here to add what you're bringing</span><span class="btn-arrow" aria-hidden="true">▼</span></a>
+  </div>
+  <p class="invite invite-2">Skip the boring classics. Bring a dish you actually love: a family recipe, your culture's greatest hit, anything. Plz help us clean after.</p>
   <div class="don-row">
     <div class="bubble-wrap">
       <p id="donBubble" class="bubble" aria-live="polite">You come to my table… on the day of the Friendsgiving.</p>
@@ -24,10 +45,6 @@
     <button type="button" id="donBtn" class="don-btn" aria-label="Poke the Don"><span id="donArt" class="don-art" aria-hidden="true"></span></button>
   </div>
   <button type="button" id="pendingNotice" class="pending-notice" hidden></button>
-  <div class="ctas">
-    <a href="#ritual" class="btn btn-kapow js-pledge"><span class="btn-main">PLEDGE A DISH</span><span class="btn-sub">add what you're bringing</span></a>
-    <a href="https://partiful.com/e/LpbfENX8UetYLqdel5bw" target="_blank" rel="noopener" class="btn btn-yolk-outline"><span class="btn-main">RSVP ON PARTIFUL</span><span class="btn-sub">the official summons</span></a>
-  </div>
   <nav class="ledger" aria-label="The Ledger">
     <ul id="ledger" class="ledger-list">
       <li><button type="button" class="ledger-btn" data-cat="Main/Ham"><span class="lg-name">HAM:</span> <span class="lg-n">COVERED</span></button></li>
@@ -41,17 +58,60 @@
   <p id="ledgerSum" class="ledger-sum">0 offers on the table · 18 still WANTED</p>
 </header>
 
+<section id="ritual" class="section ritual" aria-labelledby="ritualTitle">
+  <h2 id="ritualTitle" class="sec-title">PLEDGE A DISH</h2>
+  <p class="lead">Do the 3 steps below, then tap the red SUBMIT button. Your dish will show up on the list under this form for everyone to see.</p>
+  <form id="form" novalidate>
+    <div class="panel tilt-l">
+      <h3 class="panel-title"><span class="step-n">1</span>YOUR NAME</h3>
+      <label for="nameIn" class="lbl">Type your first name or a nickname:</label>
+      <input id="nameIn" name="name" class="field" type="text" maxlength="30" autocomplete="given-name" enterkeyhint="done" autocapitalize="words" spellcheck="false" placeholder="First name or nickname">
+    </div>
+    <div class="panel tilt-r">
+      <h3 class="panel-title"><span class="step-n">2</span>WHAT ARE YOU BRINGING?</h3>
+      <p id="catLbl" class="lbl">First, tap a category:</p>
+      <div id="cats" class="cats" role="group" aria-labelledby="catLbl">
+        <button type="button" class="cat" data-cat="Main/Ham" aria-pressed="false"><span class="cat-ic" aria-hidden="true"></span><span class="cat-name">MAIN/HAM</span><span class="cat-count">0</span></button>
+        <button type="button" class="cat" data-cat="Sides" aria-pressed="false"><span class="cat-ic" aria-hidden="true"></span><span class="cat-name">SIDES</span><span class="cat-count">0</span></button>
+        <button type="button" class="cat" data-cat="Apps" aria-pressed="false"><span class="cat-ic" aria-hidden="true"></span><span class="cat-name">APPS</span><span class="cat-count">0</span></button>
+        <button type="button" class="cat" data-cat="Desserts" aria-pressed="false"><span class="cat-ic" aria-hidden="true"></span><span class="cat-name">DESSERTS</span><span class="cat-count">0</span></button>
+        <button type="button" class="cat" data-cat="Booze" aria-pressed="false"><span class="cat-ic" aria-hidden="true"></span><span class="cat-name">BOOZE</span><span class="cat-count">0</span></button>
+        <button type="button" class="cat" data-cat="Other" aria-pressed="false"><span class="cat-ic" aria-hidden="true"></span><span class="cat-name">OTHER</span><span class="cat-count">0</span></button>
+      </div>
+      <p id="hamNote" class="ham-note" hidden>The Host has the ham covered. A second main? Bold. Allowed.</p>
+      <label for="dishIn" class="lbl">Then type the dish (you can leave this blank):</label>
+      <input id="dishIn" name="dish" class="field" type="text" maxlength="60" autocomplete="off" enterkeyhint="done" autocapitalize="sentences" placeholder="e.g. Grandma's mac n cheese">
+      <div id="dupStrip" class="dup-strip" aria-live="polite" hidden></div>
+      <p id="notesLbl" class="lbl">Anything we should know? (optional, tap all that apply)</p>
+      <div id="notes" class="chips" role="group" aria-labelledby="notesLbl">
+        <button type="button" class="chip" aria-pressed="false" data-note="VEGAN">VEGAN</button>
+        <button type="button" class="chip" aria-pressed="false" data-note="GLUTEN-FREE">GLUTEN-FREE</button>
+        <button type="button" class="chip" aria-pressed="false" data-note="NEEDS OVEN">NEEDS OVEN</button>
+        <button type="button" class="chip" aria-pressed="false" data-note="NEEDS FRIDGE">NEEDS FRIDGE</button>
+        <button type="button" class="chip" aria-pressed="false" data-note="NUT-FREE">NUT-FREE</button>
+      </div>
+      <div class="hp" aria-hidden="true"><input id="hpIn" type="text" name="website" tabindex="-1" autocomplete="off"></div>
+    </div>
+    <div class="panel tilt-l seal-panel">
+      <h3 class="panel-title"><span class="step-n">3</span>SUBMIT</h3>
+      <button type="submit" id="sealBtn" class="btn btn-kapow btn-seal"><span class="btn-main">SUBMIT MY DISH</span><span id="sealSub" class="btn-sub">tap to add it to the list</span></button>
+      <p id="status" class="status" aria-live="polite"></p>
+    </div>
+  </form>
+</section>
+
 <section id="table" class="section table-sec" aria-labelledby="tableTitle">
-  <h2 id="tableTitle" class="sec-title">THE FAMILY'S TABLE</h2>
+  <h2 id="tableTitle" class="sec-title">WHAT PEOPLE ARE ALREADY BRINGING</h2>
+  <p class="lead">This is the live list of what your friends have already signed up for. Check it before you pick, so we don't end up with five of the same dish.</p>
   <button type="button" id="hamCard" class="ham-card" aria-label="The Host's ham">
     <span id="hamArt" class="ham-art" aria-hidden="true"></span>
-    <span class="ham-text"><span class="dish">THE HAM</span> <span class="meta">— Tom Hamgen, by the Host. (Ham would be cool.)</span></span>
+    <span class="ham-text"><span class="dish">THE HAM</span> <span class="meta">— the host is bringing this one.</span></span>
   </button>
   <div id="tableLoading" class="loading">
     <ul class="cards"><li class="skel"></li><li class="skel"></li><li class="skel"></li></ul>
     <p class="loading-line">Consulting the Family ledger…</p>
   </div>
-  <p id="tableEmpty" class="empty empty-all" hidden>The table is empty. Nobody disrespects the Family like this. Be the first.</p>
+  <p id="tableEmpty" class="empty empty-all" hidden>Nobody has signed up yet. Be the first: tap PLEDGE A DISH above.</p>
   <div id="catPanels" class="cat-panels">
     <section class="cat-panel" id="cat-main" data-cat="Main/Ham"><div class="cat-head"><h3 class="cat-h">MAIN/HAM · <span class="cat-n">0</span></h3><p class="cat-status"></p></div><ul class="cards"></ul><p class="empty">Nothing here yet. Fredo is here, but Fredo brought nothing. Don't be Fredo.</p></section>
     <section class="cat-panel" id="cat-sides" data-cat="Sides"><div class="cat-head"><h3 class="cat-h">SIDES · <span class="cat-n">0</span></h3><p class="cat-status">THE FAMILY HUNGERS FOR MORE.</p></div><ul class="cards"></ul><p class="empty">No sides yet. Somebody's gonna have to step up.</p></section>
@@ -63,21 +123,21 @@
 </section>
 
 <section id="wanted" class="section wanted-sec" aria-labelledby="wantedTitle">
-  <h2 id="wantedTitle" class="sec-title">WANTED BOARD</h2>
+  <h2 id="wantedTitle" class="sec-title">NOT SURE? WE STILL NEED THESE</h2>
   <div class="hamgen-row">
     <span id="hamgenArt" class="hamgen-art" aria-hidden="true"></span>
-    <p class="blurb"><span class="blurb-who">Tom Hamgen's List</span> The Family requires the following. Tap one and it's yours. Skip the boring Thanksgiving classics: bring a dish you love, from your family or your culture. It does not have to be Thanksgiving. Many, many sides and apps.</p>
+    <p class="blurb"><span class="blurb-who">Tom Hamgen's List</span> Not sure what to bring? Tap any card below and it starts your pledge for you. Skip the boring Thanksgiving classics: bring a dish you love, from your family or your culture. It does not have to be Thanksgiving. Many, many sides and apps.</p>
   </div>
   <p id="allFilled" class="all-filled" hidden>All filled. More sides anyway. Sides are love.</p>
   <ul id="posters" class="posters">
-    <li><button type="button" class="poster" data-idx="0"><span class="p-w">WANTED</span><span class="p-name">Cranberries</span><span class="p-claim">CLAIM ›</span></button></li>
-    <li><button type="button" class="poster" data-idx="1"><span class="p-w">WANTED</span><span class="p-name">Your Family's Secret Side</span><span class="p-claim">CLAIM ›</span></button></li>
-    <li><button type="button" class="poster" data-idx="2"><span class="p-w">WANTED</span><span class="p-name">Finger Food From Your Culture</span><span class="p-claim">CLAIM ›</span></button></li>
-    <li><button type="button" class="poster" data-idx="3"><span class="p-w">WANTED</span><span class="p-name">Dumplings, Empanadas, Anything Wrapped</span><span class="p-claim">CLAIM ›</span></button></li>
-    <li><button type="button" class="poster" data-idx="4"><span class="p-w">WANTED</span><span class="p-name">A Dip or Spread</span><span class="p-claim">CLAIM ›</span></button></li>
-    <li><button type="button" class="poster" data-idx="5"><span class="p-w">WANTED</span><span class="p-name">Rice or Noodles</span><span class="p-claim">CLAIM ›</span></button></li>
-    <li><button type="button" class="poster poster-more" data-idx="more"><span class="p-w">WANTED:</span><span class="p-name">MORE SIDES</span><span class="p-reward">Reward: eternal respect</span><span class="p-claim">CLAIM ›</span></button></li>
-    <li><button type="button" class="poster poster-more" data-idx="moreApps"><span class="p-w">WANTED:</span><span class="p-name">MORE APPS</span><span class="p-reward">Reward: first dibs on leftovers</span><span class="p-claim">CLAIM ›</span></button></li>
+    <li><button type="button" class="poster" data-idx="0"><span class="p-w">WANTED</span><span class="p-name">Cranberries</span><span class="p-claim">PLEDGE THIS ›</span></button></li>
+    <li><button type="button" class="poster" data-idx="1"><span class="p-w">WANTED</span><span class="p-name">Your Family's Secret Side</span><span class="p-claim">PLEDGE THIS ›</span></button></li>
+    <li><button type="button" class="poster" data-idx="2"><span class="p-w">WANTED</span><span class="p-name">Finger Food From Your Culture</span><span class="p-claim">PLEDGE THIS ›</span></button></li>
+    <li><button type="button" class="poster" data-idx="3"><span class="p-w">WANTED</span><span class="p-name">Dumplings, Empanadas, Anything Wrapped</span><span class="p-claim">PLEDGE THIS ›</span></button></li>
+    <li><button type="button" class="poster" data-idx="4"><span class="p-w">WANTED</span><span class="p-name">A Dip or Spread</span><span class="p-claim">PLEDGE THIS ›</span></button></li>
+    <li><button type="button" class="poster" data-idx="5"><span class="p-w">WANTED</span><span class="p-name">Rice or Noodles</span><span class="p-claim">PLEDGE THIS ›</span></button></li>
+    <li><button type="button" class="poster poster-more" data-idx="more"><span class="p-w">WANTED:</span><span class="p-name">MORE SIDES</span><span class="p-reward">Reward: eternal respect</span><span class="p-claim">PLEDGE THIS ›</span></button></li>
+    <li><button type="button" class="poster poster-more" data-idx="moreApps"><span class="p-w">WANTED:</span><span class="p-name">MORE APPS</span><span class="p-reward">Reward: first dibs on leftovers</span><span class="p-claim">PLEDGE THIS ›</span></button></li>
   </ul>
   <button type="button" id="moreWanted" class="btn-link more-wanted" aria-expanded="false" aria-controls="posters" hidden>+12 MORE WANTED</button>
   <div class="covered">
@@ -86,53 +146,12 @@
   </div>
 </section>
 
-<section id="ritual" class="section ritual" aria-labelledby="ritualTitle">
-  <h2 id="ritualTitle" class="sec-title">THE RITUAL</h2>
-  <form id="form" novalidate>
-    <div class="panel tilt-l">
-      <h3 class="panel-title">SPEAK, FRIEND</h3>
-      <label for="nameIn" class="lbl">What does the Family call you?</label>
-      <input id="nameIn" name="name" class="field" type="text" maxlength="30" autocomplete="given-name" enterkeyhint="done" autocapitalize="words" spellcheck="false" placeholder="First name or nickname">
-    </div>
-    <div class="panel tilt-r">
-      <h3 class="panel-title">WHAT DO YOU BRING THE FAMILY?</h3>
-      <p id="catLbl" class="lbl">Pick a category</p>
-      <div id="cats" class="cats" role="group" aria-labelledby="catLbl">
-        <button type="button" class="cat" data-cat="Main/Ham" aria-pressed="false"><span class="cat-ic" aria-hidden="true"></span><span class="cat-name">MAIN/HAM</span><span class="cat-count">0</span></button>
-        <button type="button" class="cat" data-cat="Sides" aria-pressed="false"><span class="cat-ic" aria-hidden="true"></span><span class="cat-name">SIDES</span><span class="cat-count">0</span></button>
-        <button type="button" class="cat" data-cat="Apps" aria-pressed="false"><span class="cat-ic" aria-hidden="true"></span><span class="cat-name">APPS</span><span class="cat-count">0</span></button>
-        <button type="button" class="cat" data-cat="Desserts" aria-pressed="false"><span class="cat-ic" aria-hidden="true"></span><span class="cat-name">DESSERTS</span><span class="cat-count">0</span></button>
-        <button type="button" class="cat" data-cat="Booze" aria-pressed="false"><span class="cat-ic" aria-hidden="true"></span><span class="cat-name">BOOZE</span><span class="cat-count">0</span></button>
-        <button type="button" class="cat" data-cat="Other" aria-pressed="false"><span class="cat-ic" aria-hidden="true"></span><span class="cat-name">OTHER</span><span class="cat-count">0</span></button>
-      </div>
-      <p id="hamNote" class="ham-note" hidden>The Host has the ham covered. A second main? Bold. Allowed.</p>
-      <label for="dishIn" class="lbl">What are you bringing? (optional)</label>
-      <input id="dishIn" name="dish" class="field" type="text" maxlength="60" autocomplete="off" enterkeyhint="done" autocapitalize="sentences" placeholder="e.g. Grandma's mac n cheese">
-      <div id="dupStrip" class="dup-strip" aria-live="polite" hidden></div>
-      <p id="notesLbl" class="lbl">Any notes? (optional, tap all that apply)</p>
-      <div id="notes" class="chips" role="group" aria-labelledby="notesLbl">
-        <button type="button" class="chip" aria-pressed="false" data-note="VEGAN">VEGAN</button>
-        <button type="button" class="chip" aria-pressed="false" data-note="GLUTEN-FREE">GLUTEN-FREE</button>
-        <button type="button" class="chip" aria-pressed="false" data-note="NEEDS OVEN">NEEDS OVEN</button>
-        <button type="button" class="chip" aria-pressed="false" data-note="NEEDS FRIDGE">NEEDS FRIDGE</button>
-        <button type="button" class="chip" aria-pressed="false" data-note="NUT-FREE">NUT-FREE</button>
-      </div>
-      <div class="hp" aria-hidden="true"><input id="hpIn" type="text" name="website" tabindex="-1" autocomplete="off"></div>
-    </div>
-    <div class="panel tilt-l seal-panel">
-      <button type="submit" id="sealBtn" class="btn btn-kapow btn-seal"><span class="btn-main">SEAL THE DEAL 🤝</span><span id="sealSub" class="btn-sub">add my dish</span></button>
-      <p id="status" class="status" aria-live="polite"></p>
-    </div>
-  </form>
-</section>
-
 <section id="rules" class="section panel rules tilt-r" aria-labelledby="rulesTitle">
   <h2 id="rulesTitle" class="sec-title">HOUSE RULES</h2>
   <p>We don't discuss business at the table. We discuss dishes. Then we DO the dishes. Plz help us clean after.</p>
 </section>
 
 <footer id="foot" class="foot">
-  <a href="https://partiful.com/e/LpbfENX8UetYLqdel5bw" target="_blank" rel="noopener" class="btn btn-yolk"><span class="btn-main">RSVP ON PARTIFUL</span><span class="btn-sub">the official summons</span></a>
   <p class="foot-line">Need to change something from a different phone? Text the host. The host can fix the books.</p>
   <p class="foot-small">Open in Safari/Chrome to keep your edit button.</p>
   <button type="button" id="calmBtn" class="btn-link calm-btn" aria-pressed="false"><span class="btn-main">CALM THE FAMILY</span><span class="btn-sub">fewer explosions</span></button>
@@ -144,7 +163,7 @@
 </main>
 
 <div id="bar" class="bar">
-  <a href="#ritual" class="btn btn-kapow bar-pledge js-pledge"><span class="btn-main">PLEDGE A DISH</span><span class="btn-sub">add what you're bringing</span></a>
+  <a href="#ritual" class="btn btn-kapow bar-pledge js-pledge"><span class="btn-main">PLEDGE A DISH</span><span class="btn-sub">tap here to add what you're bringing</span></a>
   <button type="button" class="snd snd-bar js-sound" aria-pressed="false"><span class="snd-ic" aria-hidden="true">🔇</span> <span class="snd-text">SOUND: OFF</span><span class="snd-sub">the Don naps</span><span class="snd-short" aria-hidden="true">OFF</span></button>
 </div>
 <div id="toasts" class="toasts" aria-live="polite"></div>
@@ -165,3 +184,32 @@
     </div>
   </div>
 </div>
+
+<script>
+(function () {
+  var s = document.getElementById('splash');
+  if (!s) return;
+  var root = document.documentElement;
+  if (/(^| )no-splash( |$)/.test(root.className)) { s.parentNode.removeChild(s); return; }
+  root.className += ' splash-on';
+  var done = false, timer = 0, ids = ['stage', 'bar'];
+  function lock(v) { ids.forEach(function (id) { var e = document.getElementById(id); if (e) { try { e.inert = v; } catch (x) { /* optional */ } } }); }
+  function close() {
+    if (done) return; done = true; clearTimeout(timer);
+    try { sessionStorage.setItem('frans_splash', '1'); } catch (e) { /* private mode */ }
+    s.className += ' out'; lock(false);
+    root.className = root.className.replace(' splash-on', '');
+    window.scrollTo(0, 0);
+    setTimeout(function () {
+      if (s.parentNode) s.parentNode.removeChild(s);
+      try { if (window.FX && FX.play) FX.play('hero', { hero: document.getElementById('hero'), logo: document.querySelector('.logo') }); } catch (e) { /* effects are optional */ }
+    }, 420);
+  }
+  lock(true);
+  s.addEventListener('click', close);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' || e.key === 'Enter') close(); });
+  timer = setTimeout(close, 9000);
+  var go = document.getElementById('splashGo');
+  try { go.focus({ preventScroll: true }); } catch (e) { /* ignore */ }
+})();
+</script>
